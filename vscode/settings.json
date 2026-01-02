@@ -81,7 +81,6 @@
   "editor.detectIndentation": false,
 
   "workbench.colorCustomizations": {
-    // 選択行の色
     "editor.lineHighlightBackground": "#33333350",
     "editor.lineHighlightBorder": "#55555580"
   },
@@ -95,8 +94,6 @@
   },
 
   "editor.bracketPairColorization.enabled": true,
-
-  // () を除外して {} と [] だけにする
   "editor.language.brackets": [
     ["{", "}"],
     ["[", "]"]
@@ -115,32 +112,21 @@
   "git.suggestSmartCommit": false,
   "makefile.configureOnOpen": true,
 
-  //"clang-format.executable": "C:\\Program Files\\LLVM\\bin\\clang-format.exe"
-
-  // 候補2の拡張機能ID: prb28.amiga-assembly
-  // 候補1（あるいはCodeWarrior拡張機能）が提供する言語ID: vasmmot (一例)
-  /* VSCodeVim Recommended Settings */
-
-  // システムのクリップボードと同期する（必須級！）
+  // --- Vim Settings ---
   "vim.useSystemClipboard": true,
-
-  // 検索時に入力した文字をハイライトする
   "vim.hlsearch": true,
-
-  // Ctrlキーを使ったショートカットをVSCode本来のものとして使う設定
   "vim.handleKeys": {
     "C-f": false,
     "C-p": false,
     "C-j": false
   },
-
-  // 検索ハイライトをEscキーで消す設定（便利！）
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<Esc>"],
       "commands": [":nohl"]
     }
   ],
+  
   "glassit.alpha": 255,
   "editor.allowVariableFonts": false,
   "editor.fontFamily": "'HackGen Console', Consolas, 'Courier New', monospace",
