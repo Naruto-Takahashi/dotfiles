@@ -49,9 +49,10 @@ Space & l::SendInput {Blind}{Right}
 Space & a::SendInput {Blind}{Home}
 Space & e::SendInput {Blind}{End}
 
-; --- 削除操作 (Delete/Backspace) ---
-Space & x::SendInput {Blind}{Delete}    ; Vimのx (カーソル位置削除)
-Space & b::SendInput {Blind}{Backspace} ; Back (一文字戻って削除)
+; --- 編集操作 (Delete/Backspace/Undo) ---
+Space & x::SendInput {Blind}{Delete}    ; Vim x (Del)
+Space & b::SendInput {Blind}{Backspace} ; Back (BS)
+Space & u::SendInput {Blind}^z          ; Undo (Ctrl+Z)
 
 ; --- 仮想デスクトップ操作 ---
 ; Space + 右Win で移動
