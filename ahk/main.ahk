@@ -10,7 +10,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
     Send, {LCtrl up}
 Return
 
-; Ctrl + ↑ でスクロールアップ
+; Ctrl + 矢印でスクロールアップ
 ^Up::Send {WheelUp}
 
 ; Ctrl + ↓ でスクロールダウン
@@ -47,3 +47,22 @@ RWin::
     Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 Return
 ^Space::Send, ^{Space}
+
+; --- Alt空打ちでIME切り替え (alt-ime-ahk風) ---
+; 左Alt空打ち -> 無変換(IME OFF)
+~LAlt Up::
+    if (A_PriorHotkey == "~LAlt")
+    {
+        SendInput, {vk1Dsc07B}
+    }
+    Return
+~LAlt::SendInput, {vkE8} ; メニュー呼び出しキャンセル用のダミーキー
+
+; 右Alt空打ち -> 変換(IME ON)
+~RAlt Up::
+    if (A_PriorHotkey == "~RAlt")
+    {
+        SendInput, {vk1Csc07B}
+    }
+    Return
+~RAlt::SendInput, {vkE8}
