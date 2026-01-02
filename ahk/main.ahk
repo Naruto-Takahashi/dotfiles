@@ -37,7 +37,9 @@ RAlt up::
 
 ; --- Spaceキーの基本動作 ---
 ; Spaceキーを修飾キーとして使うため、単体押しは「離したとき」に反応
-Space::Send {Space}
+Space::
+    Send, {Space}
+Return
 
 ; --- Vimカーソル移動 (HJKL) ---
 Space & h::SendInput {Blind}{Left}
