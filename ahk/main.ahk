@@ -9,12 +9,6 @@ SetWorkingDir %A_ScriptDir%
     Send, {LCtrl up}
 Return
 
-; --- Ctrl + Arrows to Scroll ---
-^Up::Send {WheelUp}
-^Down::Send {WheelDown}
-^Left::Send {WheelLeft}
-^Right::Send {WheelRight}
-
 ; --- Space Key Behavior ---
 ; Standard behavior: Fire on release
 Space Up::Send, {Space}
