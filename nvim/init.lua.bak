@@ -1,0 +1,79 @@
+-- ==========================================================================
+--  Windows Safe Config (Error Free + MinGW)
+-- ==========================================================================
+
+-- 1. lazy.nvim の準備
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- 2. プラグイン設定
+require("lazy").setup({
+  -- 【色分け】Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      -- ★安全装置(pcall): エラーが起きても赤い画面を出さずにスルーします
+      local status, _ = pcall(function()
+        
+        -- Windowsの g++ を使う設定
+        require("nvim-treesitter.install").compilers = { "gcc", "g++" }
+        
+        require("nvim-treesitter.configs").setup({
+          ensure_installed = { "c", "cpp", "lua", "vim" },
+          auto_install = true,
+          highlight = { enable = true },
+        })
+      end)
+    end,
+  },
+
+ -- 【テーマ】Nord (ノード)
+  {
+    "shaunsingh/nord.nvim",
+    priority = 1000,
+    config = function()
+      vim.g.nord_disable_background = true -- 背景透過
+      vim.cmd.colorscheme("nord")
+    end,
+  },
+})
+
+-- 3. 背景透過の仕上げ
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    local hl = vim.api.nvim_set_hl
+    local no_bg = { bg = "none" }
+    hl(0, "Normal", no_bg)
+    hl(0, "NormalFloat", no_bg)
+    hl(0, "NormalNC", no_bg)
+    hl(0, "SignColumn", no_bg)
+    hl(0, "LineNr", { bg = "none", fg = "#7aa2f7" })
+    hl(0, "CursorLineNr", { bg = "none", bold = true })
+    hl(0, "CursorLine", { bg = "none", underline = true })
+  end,
+})
+
+-- 4. もしTreesitterがダメでも、標準機能で最低限の色をつける
+vim.cmd("syntax on")
+vim.cmd("filetype plugin indent on")
+
+-- 5. 基本設定
+vim.opt.number = true
+vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
