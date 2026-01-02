@@ -1,0 +1,54 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+[
+  {
+    "key": "ctrl+k ctrl+shift+j",
+    "command": "workbench.action.createTerminalEditor"
+  },
+  {
+    "key": "ctrl+k alt+down",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+k ctrl+oem_5",
+    "command": "-workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+k alt+right",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+k ctrl+oem_5",
+    "command": "-workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+k alt+left",
+    "command": "workbench.action.splitEditorLeft"
+  },
+  {
+    "key": "ctrl+k ctrl+oem_5",
+    "command": "-workbench.action.splitEditorLeft"
+  },
+  {
+    "key": "ctrl+k alt+up",
+    "command": "workbench.action.splitEditorUp"
+  },
+  {
+    "key": "ctrl+k ctrl+oem_5",
+    "command": "-workbench.action.splitEditorUp"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+shift+oem_3",
+    "command": "-workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.togglePanel",
+    "when": "true"
+  }
+]

@@ -1,0 +1,148 @@
+{
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc -fexec-charset=CP932 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "zig": "zig run",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket $fullFileName",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runghc",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName",
+    "mojo": "mojo run",
+    "erlang": "escript",
+    "spwn": "spwn build",
+    "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+    "gleam": "gleam run -m $fileNameWithoutExt"
+  },
+  "editor.renderWhitespace": "all",
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "workbench.sideBar.location": "right",
+  "vscode-pets.petSize": "small",
+  "vscode-pets.throwBallWithMouse": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "One Monokai",
+  "editor.inlayHints.enabled": "off",
+  "diffEditor.wordWrap": "off",
+  "editor.guides.indentation": false,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": false,
+  "blockman.n21BorderRadius": 2,
+  "editor.formatOnPaste": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "Monokai Classic Icons",
+  "workbench.startupEditor": "none",
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false,
+
+  "workbench.colorCustomizations": {
+    // 選択行の色
+    "editor.lineHighlightBackground": "#33333350",
+    "editor.lineHighlightBorder": "#55555580"
+  },
+
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
+  },
+
+  "editor.bracketPairColorization.enabled": true,
+
+  // () を除外して {} と [] だけにする
+  "editor.language.brackets": [
+    ["{", "}"],
+    ["[", "]"]
+  ],
+  "editor.minimap.enabled": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "．": true,
+    "，": true
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "editor.colorDecorators": false,
+  "git.autofetch": true,
+  "gitlens.ai.model": "gemini:gemini-2.5-pro",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "git.suggestSmartCommit": false,
+  "makefile.configureOnOpen": true,
+
+  //"clang-format.executable": "C:\\Program Files\\LLVM\\bin\\clang-format.exe"
+
+  // 候補2の拡張機能ID: prb28.amiga-assembly
+  // 候補1（あるいはCodeWarrior拡張機能）が提供する言語ID: vasmmot (一例)
+  /* VSCodeVim Recommended Settings */
+
+  // システムのクリップボードと同期する（必須級！）
+  "vim.useSystemClipboard": true,
+
+  // 検索時に入力した文字をハイライトする
+  "vim.hlsearch": true,
+
+  // Ctrlキーを使ったショートカットをVSCode本来のものとして使う設定
+  "vim.handleKeys": {
+    "C-f": false,
+    "C-p": false,
+    "C-j": false
+  },
+
+  // 検索ハイライトをEscキーで消す設定（便利！）
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "glassit.alpha": 255,
+  "editor.allowVariableFonts": false,
+  "editor.fontFamily": "'HackGen Console', Consolas, 'Courier New', monospace",
+  "http.systemCertificatesNode": true
+}
