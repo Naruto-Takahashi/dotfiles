@@ -28,7 +28,8 @@ Space::
 Return
 
 ; Space + ?? → 各種操作
-Space & u:: Send, {Backspace}
+Space & u:: Send, ^z
+Space & b:: Send, {Backspace}
 Space & o:: Send, {Delete}
 Space & h:: Send, {Home}
 Space & `;:: Send, {End}
