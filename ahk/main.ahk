@@ -18,19 +18,23 @@ Return
 ; --- Space Key Behavior ---
 ; Standard behavior: Fire on release
 Space Up::Send, {Space}
-
 ; Shift + Space: Force normal space (allows repeat)
 +Space::Send, {Space}
 
-; --- Space Combinations ---
+; --- Vim Navigation (HJKL) ---
+Space & h::Send {Blind}{Left}
+Space & j::Send {Blind}{Down}
+Space & k::Send {Blind}{Up}
+Space & l::Send {Blind}{Right}
+
+; --- Home / End ---
+Space & a::Send {Blind}{Home}
+Space & e::Send {Blind}{End}
+
+; --- Editing ---
 Space & u:: Send, ^z          ; Undo
 Space & b:: Send, {Backspace} ; Backspace
-Space & o:: Send, {Delete}
-Space & h:: Send, {Home}
-Space & `;:: Send, {End}
-Space & n:: Send, {Insert}
-Space & f:: Send, {vk1Dsc07B} ; Muhenkan
-Space & j:: Send, {vk1Csc07B} ; Henkan
+Space & x:: Send, {Delete}    ; Delete
 
 ; --- Virtual Desktop ---
 Space & RWin::
