@@ -15,21 +15,12 @@ Return
 ^Left::Send {WheelLeft}
 ^Right::Send {WheelRight}
 
-; --- Space Key Behavior (Long press to repeat) ---
-$Space::
-    KeyWait, Space, T0.25 ; Wait 0.25s to verify long press
-    if (ErrorLevel) { ; Long pressed
-        Send {Space}
-        Loop {
-            if !GetKeyState("Space", "P")
-                break
-            Send {Space}
-            Sleep 30
-        }
-    } else { ; Short pressed
-        Send {Space}
-    }
-return
+; --- Space Key Behavior ---
+; Standard behavior: Fire on release
+Space Up::Send, {Space}
+
+; Shift + Space: Force normal space (allows repeat)
++Space::Send, {Space}
 
 ; --- Space Combinations ---
 Space & u:: Send, ^z          ; Undo
