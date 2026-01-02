@@ -18,7 +18,7 @@ config.macos_window_background_blur = 20
 config.window_decorations = "RESIZE"
 -- タブバーの表示
 config.show_tabs_in_tab_bar = true
--- タブが一つの時は非表示
+-- タブが一つだけの時はタブバーを非表示にするか
 config.hide_tab_bar_if_only_one_tab = false
 -- falseにするとタブバーの透過が効かなくなる
 -- config.use_fancy_tab_bar = false
@@ -64,10 +64,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   end
 
   local edge_foreground = background
-  
+
   -- 1. まずデフォルトのタイトルを取得
   local title_text = tab.active_pane.title
-  
+
   -- 2. 裏で動いているプログラムのファイル名を取得（例: "C:\Windows\System32\cmd.exe"）
   local process = tab.active_pane.foreground_process_name or ""
 
@@ -104,7 +104,7 @@ end)
 -- 起動時に PowerShell を立ち上げる設定
 config.default_prog = { 'powershell.exe', '-nologo' }
 
--- 「＋」ボタンを右クリックしたときのメニュー
+-- 「＋」ボタンをクリックしたときのメニュー
 config.launch_menu = {
   {
     -- PowerShell のフルパス
@@ -117,9 +117,9 @@ config.launch_menu = {
     args = { 'C:\\Windows\\System32\\cmd.exe', '/k' },
   },
   {
-	-- WSL Ubuntu の起動
-	label = 'WSL (Ubuntu)',
-	args = { 'wsl.exe', '--cd', '~' },
+        -- WSL Ubuntu の起動
+        label = 'WSL (Ubuntu)',
+        args = { 'wsl.exe', '--cd', '~' },
   },
 }
 

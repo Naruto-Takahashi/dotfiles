@@ -3,46 +3,59 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-; F13(CapsLockキー) → 左Control
+; --- CapsLock -> Ctrl ---
 *F13::
-    Send, {LCtrl down}
+    SendInput, {LCtrl down}
     KeyWait, F13
-    Send, {LCtrl up}
+    SendInput, {LCtrl up}
 Return
 
-; Ctrl + ↑ でスクロールアップ
-^Up::Send {WheelUp}
+; --- Ctrl + 矢印でスクロール ---
+^Up::SendInput {WheelUp}
+^Down::SendInput {WheelDown}
+^Left::SendInput {WheelLeft}
+^Right::SendInput {WheelRight}
 
-; Ctrl + ↓ でスクロールダウン
-^Down::Send {WheelDown}
+; --- Alt空打ちでIME切り替え (alt-ime-ahk風) ---
+; 左Alt空打ち -> 無変換(IME OFF)
+LAlt up::
+    if (A_PriorHotkey == "*~LAlt")
+    {
+        SendInput, {vk1Dsc07B}
+    }
+    Return
+*~LAlt::Return
 
-; Ctrl + ← で左スクロール
-^Left::Send {WheelLeft}
+; 右Alt空打ち -> 変換(IME ON)
+RAlt up::
+    if (A_PriorHotkey == "*~RAlt")
+    {
+        SendInput, {vk1Csc07B}
+    }
+    Return
+*~RAlt::Return
 
-; Ctrl + → で右スクロール
-^Right::Send {WheelRight}
+; --- Spaceキーの基本動作 ---
+; Spaceキーを修飾キーとして使うため、単体押しは「離したとき」に反応
+Space::SendInput {Space}
 
-; Space単体 → 普通に空白を入力
-Space::
-    Send, {Space}
-Return
+; --- Vimカーソル移動 (HJKL) ---
+Space & h::SendInput {Blind}{Left}
+Space & j::SendInput {Blind}{Down}
+Space & k::SendInput {Blind}{Up}
+Space & l::SendInput {Blind}{Right}
 
-; Space + ?? → 各種操作
-Space & u:: Send, {Backspace}
-Space & o:: Send, {Delete}
-Space & h:: Send, {Home}
-Space & `;:: Send, {End}
-Space & n:: Send, {Insert}
-Space & f:: Send, {vk1Dsc07B}  ; 無変換キー
-Space & j:: Send, {vk1Csc07B}  ; 変換キー
+; --- 行頭・行末 (Home/End) ---
+Space & a::SendInput {Blind}{Home}
+Space & e::SendInput {Blind}{End}
 
-; スペース+右Win → アクティブなタブをデスクトップ間で移動
-Space & RWin::
-    SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
-Return
+; --- 削除操作 (Delete/Backspace) ---
+Space & x::SendInput {Blind}{Delete}    ; Vimのx (カーソル位置削除)
+Space & b::SendInput {Blind}{Backspace} ; Back (一文字戻って削除)
 
-; 右Win → デスクトップ切り替え
-RWin::
-    Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
-Return
-^Space::Send, ^{Space}
+; --- 仮想デスクトップ操作 ---
+; Space + 右Win で移動
+Space & RWin::SendInput {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
+; 右Win単体で移動
+RWin::SendInput {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
+^Space::SendInput ^{Space}
