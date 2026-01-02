@@ -30,14 +30,16 @@ Space & u:: Send, ^z          ; Undo
 Space & b:: Send, {Backspace} ; Backspace
 Space & x:: Send, {Delete}    ; Delete
 
-; --- Virtual Desktop ---
-Space & RWin::
-    SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
-Return
+; --- Virtual Desktop Operations ---
 
-RWin::
-    Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
-Return
+; Move Desktop (Right) - RWin or RCtrl
+RWin::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
+RCtrl::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
+
+; Move Window to Next Desktop - Alt + RWin/RCtrl
+!RWin::SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
+!RCtrl::SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
+
 ^Space::Send, ^{Space}
 
 ; --- Alt Key IME Switching ---
