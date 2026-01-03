@@ -18,7 +18,7 @@ return {
           { section = "keys", gap = 1, padding = 1 },
           {
             section = "startup",
-            hl = "SnacksDashboardHeader",
+            hl = "SnacksDashboardDesc", -- 説明文と同じ明るい茶色に
           },
         },
         -- 右側 (Pane 2): 余白 + ギデオンの画像
@@ -40,24 +40,23 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
-    
-    local function set_dashboard_colors()
-      local brown_main = "#917B62" -- 明るい茶色
-      local brown_dark = "#4A3B43" -- 深い色
-      
-      -- ロゴと統計情報を「深い色 (#4A3B43)」に変更
-      local dark_groups = {
-        "SnacksDashboardHeader",
-        "SnacksDashboardStartup",
-        "SnacksDashboardStats",
-        "SnacksDashboardFooter",
-      }
-      for _, group in ipairs(dark_groups) do
-        vim.api.nvim_set_hl(0, group, { fg = brown_dark, bold = (group == "SnacksDashboardHeader") })
-      end
 
-      -- 説明文を「明るい茶色 (#917B62)」に変更
-      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = brown_main })
+    local function set_dashboard_colors()
+      local brown_light = "#917B62" -- 明るい茶色
+      local brown_dark  = "#4A3B43" -- 深い色
+      local key_pink    = "#E5A19E" -- キー用のピンク
+
+      -- 1. ロゴと統計情報のヘッダー (深い色)
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = brown_dark, bold = true })
+
+      -- 2. キーの説明文と最下部メッセージ (明るい茶色)
+      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = brown_light })
+      vim.api.nvim_set_hl(0, "SnacksDashboardStartup", { fg = brown_light })
+      vim.api.nvim_set_hl(0, "SnacksDashboardStats", { fg = brown_light })
+      vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = brown_light })
+
+      -- 3. キー部分 (指定のピンク #E5A19E で固定)
+      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = key_pink, bold = true })
     end
 
     vim.api.nvim_create_autocmd({ "VimEnter", "User" }, {
