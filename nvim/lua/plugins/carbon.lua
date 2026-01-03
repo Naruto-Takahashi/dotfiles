@@ -3,7 +3,7 @@ return {
   lazy = true,
   cmd = "CarbonNow",
   opts = {
-    open_cmd = "cmd.exe /c start", -- Windows用のブラウザ起動コマンド
+    -- open_cmd = "powershell.exe Start-Process", -- 一旦削除
     options = {
       theme = "monokai",
       font_family = "Fira Code",
