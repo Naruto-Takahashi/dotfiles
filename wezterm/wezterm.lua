@@ -101,8 +101,8 @@ end)
 -- Shell Configuration (Updated for WSL Ubuntu)
 -- =============================================================================
 
--- 起動時に PowerShell を立ち上げる設定
-config.default_prog = { 'powershell.exe', '-nologo' }
+-- 起動時に WSL (Ubuntu) を立ち上げる設定 (ホームディレクトリで開始)
+config.default_prog = { 'wsl.exe', '--cd', '~' }
 
 -- 「＋」ボタンをクリックしたときのメニュー
 config.launch_menu = {
@@ -110,11 +110,6 @@ config.launch_menu = {
     -- PowerShell のフルパス
     label = 'PowerShell (Windows)',
     args = { 'C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe', '-nologo' },
-  },
-  {
-    -- Command Prompt (最強版)
-    label = 'Command Prompt',
-    args = { 'C:\\Windows\\System32\\cmd.exe', '/k' },
   },
   {
         -- WSL Ubuntu の起動

@@ -1,6 +1,28 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- WSLを使用している場合はWSLで、そうでなければデフォルトで分割する関数
+local function split_pane(direction)
+  return wezterm.action_callback(function(window, pane)
+    local dim = { direction = direction }
+    local proc = pane:get_foreground_process_name()
+    local cwd_uri = pane:get_current_working_dir()
+
+    -- プロセス名に "wsl" が含まれていれば wsl.exe を起動
+    if proc and (proc:find("wsl.exe") or proc:find("wslhost.exe")) then
+      if cwd_uri then
+        -- WSLの場合は file_path をそのまま使う (/home/nalt/...)
+        dim.command = { args = { "wsl.exe", "--cd", cwd_uri.file_path } }
+      else
+        dim.command = { args = { "wsl.exe" } }
+      end
+    end
+    -- PowerShellなどの場合は dim.cwd を指定せずデフォルトの挙動（OSC 7による引継ぎ）に任せる
+
+    window:perform_action(act.SplitPane(dim), pane)
+  end)
+end
+
 -- Show which key table is active in the status area
 wezterm.on("update-right-status", function(window, pane)
   local name = window:active_key_table()
@@ -18,6 +40,9 @@ return {
 
     -- Leader + t で新しいタブを作成 (Tab)
     { key = "t", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
+
+    -- Leader + T (Shift+t) で新しいタブの種類を選択して作成 (Launch Menu)
+    { key = "T", mods = "LEADER|SHIFT", action = act.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
 
     -- Leader + w でタブを閉じる (Close Window)
     -- ※確認画面が出ます
@@ -65,8 +90,8 @@ return {
     { key = "9", mods = "ALT", action = act.ActivateTab(-1) },
 
     -- ペイン操作 (分割・移動)
-    { key = "d", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    { key = "r", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "d", mods = "LEADER", action = split_pane("Down") },
+    { key = "r", mods = "LEADER", action = split_pane("Right") },
     { key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
     { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
     { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
