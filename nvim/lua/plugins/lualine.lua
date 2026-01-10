@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "nord", -- テーマに合わせておく
+        theme = "auto", -- 現在のカラースキームに合わせる
         section_separators = { left = '', right = ''},
         component_separators = { left = '', right = ''},
       }
