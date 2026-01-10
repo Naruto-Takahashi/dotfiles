@@ -4,14 +4,7 @@ return {
   priority = 1000,
   opts = {
     flavour = "mocha",
-    transparent_background = false, -- 透過をオフにして色を固定
-    color_overrides = {
-      mocha = {
-        base = "#000000", -- 背景を完全な黒に変更
-        mantle = "#010101",
-        crust = "#020202",
-      },
-    },
+    transparent_background = true, -- 透過を有効化
     integrations = {
       cmp = true,
       gitsigns = true,

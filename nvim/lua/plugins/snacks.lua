@@ -20,7 +20,7 @@ return {
           section = "terminal",
           cmd = (function()
             if vim.fn.has("win32") == 1 then
-              return [[C:/Users/tnaru/AppData/Local/Microsoft/WinGet/Packages/hpjansson.Chafa_Microsoft.Winget.Source_8wekyb3d8bbwe/chafa-1.18.0-1-x86_64-win/Chafa.exe "C:/Users/tnaru/Tools/Customization/gideon_cursor/gide_pixel.png" --size 60x22 --symbols block+vhalf+quad+hhalf --colors full --dither fs --threshold 0.7 --preprocess false]]
+              return [[C:/Users/tnaru/AppData/Local/Microsoft/WinGet/Packages/hpjansson.Chafa_Microsoft.WinGet.Source_8wekyb3d8bbwe/chafa-1.18.0-1-x86_64-win/Chafa.exe "C:/Users/tnaru/Tools/Customization/gideon_cursor/gide_pixel.png" --size 60x22 --symbols block+vhalf+quad+hhalf --colors full --dither fs --threshold 0.7 --preprocess false]]
             else
               return [[chafa "/mnt/c/Users/tnaru/Tools/Customization/gideon_cursor/gide_pixel.png" --format symbols --size 60x22 --symbols block+vhalf+quad+hhalf --colors full]]
             end
