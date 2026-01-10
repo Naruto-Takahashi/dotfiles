@@ -6,7 +6,8 @@
 ## Tab Operations
 | Key | Action | Description |
 | :--- | :--- | :--- |
-| `Leader` + `t` | New Tab | Create a new tab |
+| `Leader` + `t` | New Tab | Create a new tab (Default: WSL) |
+| `Leader` + `Shift` + `t` (`T`) | Launch Menu | Open menu to select shell (WSL/PowerShell) |
 | `Leader` + `w` | Close Tab | Close the current tab (with confirmation) |
 | `Leader` + `n` | Next Tab | Switch to the next tab |
 | `Leader` + `p` | Previous Tab | Switch to the previous tab |

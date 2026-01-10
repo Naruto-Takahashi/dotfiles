@@ -41,6 +41,9 @@ return {
     -- Leader + t で新しいタブを作成 (Tab)
     { key = "t", mods = "LEADER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 
+    -- Leader + T (Shift+t) で新しいタブの種類を選択して作成 (Launch Menu)
+    { key = "T", mods = "LEADER|SHIFT", action = act.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
+
     -- Leader + w でタブを閉じる (Close Window)
     -- ※確認画面が出ます
     { key = "w", mods = "LEADER", action = act({ CloseCurrentTab = { confirm = true } }) },
