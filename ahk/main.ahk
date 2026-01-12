@@ -78,14 +78,14 @@ RCtrl::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 ; Left Alt: IME OFF (English)
 ~LAlt Up::
     if (A_PriorHotkey == "~LAlt")
-        SendInput, {vk1Dsc07B} ; Muhenkan
+        IME_SET(0)
     Return
 ~LAlt::SendInput, {vkE8} ; Void
 
 ; Right Alt: IME ON (Japanese)
 ~RAlt Up::
     if (A_PriorHotkey == "~RAlt")
-        SendInput, {vk1Csc07B} ; Henkan
+        IME_SET(1)
     Return
 ~RAlt::SendInput, {vkE8} ; Void
 
