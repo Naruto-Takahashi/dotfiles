@@ -1,56 +1,98 @@
-﻿#NoEnv
+/*
+    =============================================================================
+    Main AutoHotkey Script
+    Description: Key remappings, Vim-like navigation, and IME integration.
+    =============================================================================
+*/
+
+; =============================================================================
+; Global Settings
+; =============================================================================
+#NoEnv
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
+; Load external libraries
+#Include %A_ScriptDir%\lib\ime_functions.ahk
+
+; =============================================================================
+; Key Remapping
+; =============================================================================
+
 ; --- CapsLock -> Left Control ---
+; Remaps F13 (mapped from CapsLock in Registry/Software) to Left Control
 *F13::
     Send, {LCtrl down}
     KeyWait, F13
     Send, {LCtrl up}
 Return
 
-; --- Space Key Behavior ---
-; Standard behavior: Fire on release
+; =============================================================================
+; Space Key Enhancements (SandS & Vim Mode)
+; =============================================================================
+
+; --- SandS (Space and Shift) Behavior ---
+; Tap Space: Output Space
 Space Up::Send, {Space}
-; Shift + Space: Force normal space (allows repeat)
+; Shift + Space: Output Space (allows repeat)
 +Space::Send, {Space}
 
-; --- Vim Navigation (HJKL) ---
+
+; --- Vim Navigation (Space + HJKL) ---
 Space & h::Send {Blind}{Left}
 Space & j::Send {Blind}{Down}
 Space & k::Send {Blind}{Up}
 Space & l::Send {Blind}{Right}
 
-; --- Home / End ---
+; --- Navigation Extras ---
 Space & a::Send {Blind}{Home}
 Space & e::Send {Blind}{End}
 
-; --- Editing ---
+; --- Editing Shortcuts ---
 Space & u:: Send, ^z          ; Undo
 Space & b:: Send, {Backspace} ; Backspace
 Space & x:: Send, {Delete}    ; Delete
+^Space::    Send, ^{Space}    ; Ctrl + Space (Pass-through)
 
-; --- Virtual Desktop Operations ---
 
-; Move Desktop (Right) - RWin or RCtrl
-RWin::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
+; =============================================================================
+; Virtual Desktop Operations
+; =============================================================================
+
+; --- Switch Desktop (Right) ---
+; RWin or RCtrl -> Switch to next desktop
+RWin:: Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 RCtrl::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 
-; Move Window to Next Desktop - Alt + RWin/RCtrl
-!RWin::SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
+; --- Move Window to Next Desktop ---
+; Alt + RWin/RCtrl -> Move active window to next desktop
+!RWin:: SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
 !RCtrl::SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
 
-^Space::Send, ^{Space}
 
-; --- Alt Key IME Switching ---
+; =============================================================================
+; IME & Vim Integration
+; =============================================================================
+
+; --- Alt Key IME Switching (Mac-style) ---
+; Left Alt: IME OFF (English)
 ~LAlt Up::
     if (A_PriorHotkey == "~LAlt")
-        SendInput, {vk1Dsc07B}
+        SendInput, {vk1Dsc07B} ; Muhenkan
     Return
-~LAlt::SendInput, {vkE8}
+~LAlt::SendInput, {vkE8} ; Void
 
+; Right Alt: IME ON (Japanese)
 ~RAlt Up::
     if (A_PriorHotkey == "~RAlt")
-        SendInput, {vk1Csc07B}
+        SendInput, {vk1Csc07B} ; Henkan
     Return
-~RAlt::SendInput, {vkE8}
+~RAlt::SendInput, {vkE8} ; Void
+
+; --- Vim Escape & IME OFF ---
+; Pressing Escape sends Esc and forces IME OFF
+$Esc::
+    Send, {Esc}
+    Sleep 10 ; Slight delay to ensure Esc processes before IME switch
+    IME_SET(0)
+Return
