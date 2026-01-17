@@ -16,6 +16,8 @@ local function split_pane(direction)
       else
         dim.command = { args = { "wsl.exe" } }
       end
+    elseif proc and (proc:find("powershell.exe") or proc:find("pwsh.exe")) then
+      dim.command = { args = { "powershell.exe", "-NoLogo" } }
     end
     -- PowerShellなどの場合は dim.cwd を指定せずデフォルトの挙動（OSC 7による引継ぎ）に任せる
 
