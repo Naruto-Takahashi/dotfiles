@@ -123,11 +123,11 @@ return {
     { key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
     { key = "a", mods = "LEADER", action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }) },
 
-    -- ヘルプ表示 (Leader + m) -> GitHubで開く
+    -- GitHubでキーバインド一覧を開く (Leader + m)
     {
       key = "m",
       mods = "LEADER",
-      action = act.OpenUrl("https://github.com/Naruto-Takahashi/dotfiles/blob/main/wezterm/KEYBINDINGS.md"),
+      action = act.OpenUri("https://github.com/Naruto-Takahashi/dotfiles/blob/main/wezterm/KEYBINDINGS.md"),
     },
   },
 
