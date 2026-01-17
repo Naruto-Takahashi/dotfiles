@@ -127,7 +127,7 @@ return {
       mods = "LEADER", -- ? は Shift+/ なので実際には Leader -> Shift+/
       action = act.SplitPane({
         direction = "Right",
-        command = { args = { "less", os.getenv("HOME") .. "/dotfiles/wezterm/KEYBINDINGS.md" } },
+        command = { args = { "less", wezterm.config_dir .. "/KEYBINDINGS.md" } },
         size = { Percent = 50 },
       }),
     },
