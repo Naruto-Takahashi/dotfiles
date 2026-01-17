@@ -123,10 +123,10 @@ return {
     { key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
     { key = "a", mods = "LEADER", action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }) },
 
-    -- ヘルプ表示 (Leader + ?)
+    -- ヘルプ表示 (Leader + m)
     {
-      key = "?",
-      mods = "LEADER", -- ? は Shift+/ なので実際には Leader -> Shift+/
+      key = "m",
+      mods = "LEADER",
       action = act.SplitPane({
         direction = "Right",
         -- WindowsのGit Bashに含まれるlessをフルパスで指定
