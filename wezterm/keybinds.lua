@@ -127,7 +127,8 @@ return {
       mods = "LEADER", -- ? は Shift+/ なので実際には Leader -> Shift+/
       action = act.SplitPane({
         direction = "Right",
-        command = { args = { "less", wezterm.config_dir .. "/KEYBINDINGS.md" } },
+        -- WindowsのGit Bashに含まれるlessをフルパスで指定
+        command = { args = { "C:/Program Files/Git/usr/bin/less.exe", wezterm.config_dir .. "/KEYBINDINGS.md" } },
         size = { Percent = 50 },
       }),
     },
