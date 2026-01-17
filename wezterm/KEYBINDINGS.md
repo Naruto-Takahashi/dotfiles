@@ -1,74 +1,74 @@
-# WezTerm Keybindings
+# WezTerm キーバインディング
 
-## Leader Key
-`Ctrl + Space` (Press and release, then press the key below)
+## リーダーキー
+`Ctrl + Space` (押して離してから、以下のキーを押す)
 
-## Tab Operations
-| Key | Action | Description |
+## タブ操作
+| キー | 動作 | 説明 |
 | :--- | :--- | :--- |
-| `Leader` + `t` | New Tab | Create a new tab (Default: WSL) |
-| `Leader` + `Shift` + `t` (`T`) | Launch Menu | Open menu to select shell (WSL/PowerShell) |
-| `Leader` + `w` | Close Tab | Close the current tab (with confirmation) |
-| `Leader` + `n` | Next Tab | Switch to the next tab |
-| `Leader` + `p` | Previous Tab | Switch to the previous tab |
-| `Leader` + `Shift` + `{` | Move Tab Left | Move the current tab to the left |
-| `Leader` + `Shift` + `}` | Move Tab Right | Move the current tab to the right |
-| `Alt` + `1`...`9` | Select Tab | Switch to tab 1-9 (9 is the last tab) |
+| `Leader` + `t` | 新規タブ | 新しいタブを作成 (デフォルト: WSL) |
+| `Leader` + `Shift` + `t` (`T`) | メニュー起動 | シェル選択メニューを開く (WSL/PowerShell) |
+| `Leader` + `w` | タブを閉じる | 現在のタブを閉じる (確認あり) |
+| `Leader` + `n` | 次のタブ | 次のタブに切り替え |
+| `Leader` + `p` | 前のタブ | 前のタブに切り替え |
+| `Leader` + `Shift` + `{` | タブを左へ移動 | 現在のタブを左へ移動 |
+| `Leader` + `Shift` + `}` | タブを右へ移動 | 現在のタブを右へ移動 |
+| `Alt` + `1`...`9` | タブ選択 | タブ1〜9に切り替え (9は最後のタブ) |
 
-## Pane Operations
-| Key | Action | Description |
+## ペイン操作
+| キー | 動作 | 説明 |
 | :--- | :--- | :--- |
-| `Leader` + `d` | Split Vertical | Split pane vertically (Top/Bottom) |
-| `Leader` + `r` | Split Horizontal | Split pane horizontally (Left/Right) |
-| `Leader` + `x` | Close Pane | Close the current pane (with confirmation) |
-| `Leader` + `z` | Zoom Pane | Toggle maximize/unmaximize current pane |
-| `Leader` + `h` | Select Left | Move focus to the left pane |
-| `Leader` + `j` | Select Down | Move focus to the bottom pane |
-| `Leader` + `k` | Select Up | Move focus to the top pane |
-| `Leader` + `l` | Select Right | Move focus to the right pane |
+| `Leader` + `d` | 垂直分割 | ペインを垂直に分割 (上下) |
+| `Leader` + `r` | 水平分割 | ペインを水平に分割 (左右) |
+| `Leader` + `x` | ペインを閉じる | 現在のペインを閉じる (確認あり) |
+| `Leader` + `z` | ペイン最大化 | 現在のペインの最大化/解除を切り替え |
+| `Leader` + `h` | 左を選択 | 左のペインにフォーカス移動 |
+| `Leader` + `j` | 下を選択 | 下のペインにフォーカス移動 |
+| `Leader` + `k` | 上を選択 | 上のペインにフォーカス移動 |
+| `Leader` + `l` | 右を選択 | 右のペインにフォーカス移動 |
 
-### Resize Mode (`Leader` + `s`)
-Enter resize mode. Press `Esc` or `Enter` to exit.
-| Key | Action |
+### リサイズモード (`Leader` + `s`)
+リサイズモードに入ります。`Esc` または `Enter` で終了します。
+| キー | 動作 |
 | :--- | :--- |
-| `h` | Resize Left |
-| `j` | Resize Down |
-| `k` | Resize Up |
-| `l` | Resize Right |
+| `h` | 左へリサイズ |
+| `j` | 下へリサイズ |
+| `k` | 上へリサイズ |
+| `l` | 右へリサイズ |
 
-### Activate Pane Mode (`Leader` + `a`)
-Enter pane activation mode (quick switch).
-| Key | Action |
+### ペインアクティブ化モード (`Leader` + `a`)
+ペインアクティブ化（クイック切り替え）モードに入ります。
+| キー | 動作 |
 | :--- | :--- |
-| `h` | Select Left |
-| `j` | Select Down |
-| `k` | Select Up |
-| `l` | Select Right |
+| `h` | 左を選択 |
+| `j` | 下を選択 |
+| `k` | 上を選択 |
+| `l` | 右を選択 |
 
-## Workspace Operations
-| Key | Action | Description |
+## ワークスペース操作
+| キー | 動作 | 説明 |
 | :--- | :--- | :--- |
-| `Leader` + `Shift` + `W` | Select Workspace | Open workspace launcher |
-| `Leader` + `$` | Rename Workspace | Rename the current workspace |
+| `Leader` + `Shift` + `W` | ワークスペース選択 | ワークスペースランチャーを開く |
+| `Leader` + `$` | ワークスペース名変更 | 現在のワークスペースの名前を変更 |
 
-## Copy Mode (`Leader` + `[`)
-Enter copy mode to scroll and select text.
-| Key | Action |
+## コピーモード (`Leader` + `[`)
+コピーモードに入り、スクロールやテキスト選択を行います。
+| キー | 動作 |
 | :--- | :--- |
-| `Esc`, `q`, `Ctrl+c` | Exit Copy Mode |
-| `h`, `j`, `k`, `l` | Move Cursor |
-| `v` | Visual Mode (Cell) |
-| `Ctrl` + `v` | Visual Block Mode |
-| `Shift` + `v` (`V`) | Visual Line Mode |
-| `y` | Copy to Clipboard |
+| `Esc`, `q`, `Ctrl+c` | コピーモード終了 |
+| `h`, `j`, `k`, `l` | カーソル移動 |
+| `v` | ビジュアルモード (文字単位) |
+| `Ctrl` + `v` | ビジュアルブロックモード |
+| `Shift` + `v` (`V`) | ビジュアルラインモード (行単位) |
+| `y` | クリップボードにコピー |
 
-## General / Other
-| Key | Action | Description |
+## 一般 / その他
+| キー | 動作 | 説明 |
 | :--- | :--- | :--- |
-| `Ctrl` + `Shift` + `p` | Command Palette | Open the command palette |
-| `Ctrl` + `Shift` + `c` | Copy | Copy selection to clipboard |
-| `Ctrl` + `Shift` + `v` | Paste | Paste from clipboard |
-| `Ctrl` + `+` | Increase Font | Increase font size |
-| `Ctrl` + `-` | Decrease Font | Decrease font size |
-| `Ctrl` + `0` | Reset Font | Reset font size |
-| `Ctrl` + `Shift` + `r` | Reload Config | Reload WezTerm configuration |
+| `Ctrl` + `Shift` + `p` | コマンドパレット | コマンドパレットを開く |
+| `Ctrl` + `Shift` + `c` | コピー | 選択範囲をクリップボードにコピー |
+| `Ctrl` + `Shift` + `v` | 貼り付け | クリップボードから貼り付け |
+| `Ctrl` + `+` | フォント拡大 | フォントサイズを大きくする |
+| `Ctrl` + `-` | フォント縮小 | フォントサイズを小さくする |
+| `Ctrl` + `0` | フォントリセット | フォントサイズをリセットする |
+| `Ctrl` + `Shift` + `r` | 設定リロード | WezTermの設定を再読み込み |
