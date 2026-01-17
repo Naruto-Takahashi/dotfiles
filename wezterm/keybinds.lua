@@ -129,8 +129,8 @@ return {
       mods = "LEADER",
       action = act.SplitPane({
         direction = "Right",
-        -- WindowsのGit Bashに含まれるlessをフルパスで指定
-        command = { args = { "C:/Program Files/Git/usr/bin/less.exe", wezterm.config_dir .. "/KEYBINDINGS.md" } },
+        -- nvimで開く (WindowsのPATHにnvimがあることを期待)
+        command = { args = { "nvim", wezterm.config_dir .. "/KEYBINDINGS.md" } },
         size = { Percent = 50 },
       }),
     },
