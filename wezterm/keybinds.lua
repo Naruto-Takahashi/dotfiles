@@ -120,6 +120,17 @@ return {
     -- キーテーブル
     { key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
     { key = "a", mods = "LEADER", action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }) },
+
+    -- ヘルプ表示 (Leader + ?)
+    {
+      key = "?",
+      mods = "LEADER", -- ? は Shift+/ なので実際には Leader -> Shift+/
+      action = act.SplitPane({
+        direction = "Right",
+        command = { args = { "less", os.getenv("HOME") .. "/dotfiles/wezterm/KEYBINDINGS.md" } },
+        size = { Percent = 50 },
+      }),
+    },
   },
 
   -- キーテーブル設定（変更なし）
