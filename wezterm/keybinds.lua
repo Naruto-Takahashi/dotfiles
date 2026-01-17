@@ -123,16 +123,11 @@ return {
     { key = "s", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
     { key = "a", mods = "LEADER", action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }) },
 
-    -- ヘルプ表示 (Leader + m)
+    -- ヘルプ表示 (Leader + m) -> GitHubで開く
     {
       key = "m",
       mods = "LEADER",
-      action = act.SplitPane({
-        direction = "Right",
-        -- nvimで開く (WindowsのPATHにnvimがあることを期待)
-        command = { args = { "nvim", wezterm.config_dir .. "/KEYBINDINGS.md" } },
-        size = { Percent = 50 },
-      }),
+      action = act.OpenUrl("https://github.com/Naruto-Takahashi/dotfiles/blob/main/wezterm/KEYBINDINGS.md"),
     },
   },
 
