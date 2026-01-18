@@ -45,3 +45,9 @@ else
   vim.opt.makeprg = "make"
   -- Shell is usually bash/zsh by default, so no need to change
 end
+
+-- Window Navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate Left" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate Down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate Up" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate Right" })
