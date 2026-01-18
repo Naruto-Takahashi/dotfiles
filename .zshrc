@@ -51,3 +51,12 @@ alias zn='npx zenn new:article'
 
 # PATH
 export PATH="$PATH:/home/nalt/.local/bin"
+
+# WezTerm OSC 7 support for Zsh
+if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
+  function wezterm_osc7 {
+    printf "\033]7;file://%s%s\033\\" "$HOSTNAME" "$PWD"
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd wezterm_osc7
+fi
