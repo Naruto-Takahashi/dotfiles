@@ -107,9 +107,9 @@ config.default_prog = { 'wsl.exe', '--cd', '~' }
 -- 「＋」ボタンをクリックしたときのメニュー
 config.launch_menu = {
   {
-    -- PowerShell のフルパス
-    label = 'PowerShell (Windows)',
-    args = { 'C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe', '-nologo' },
+    -- PowerShell Core (pwsh)
+    label = 'PowerShell (Core)',
+    args = { 'pwsh.exe', '-NoLogo' },
   },
   {
         -- WSL Ubuntu の起動
