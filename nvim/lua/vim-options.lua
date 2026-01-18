@@ -51,3 +51,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate Left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate Down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate Up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate Right" })
+
+-- Better Indent
+vim.keymap.set("v", "<", "<gv", { desc = "Indent Left and Stay" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent Right and Stay" })
+
+-- Clear Highlight
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight" })
