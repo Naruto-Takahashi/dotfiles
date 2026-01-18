@@ -108,7 +108,7 @@ config.default_prog = { 'wsl.exe', '--cd', '~' }
 config.launch_menu = {
   {
     -- PowerShell Core (pwsh)
-    label = 'PowerShell (Core)',
+    label = 'PowerShell',
     args = { 'pwsh.exe', '-NoLogo' },
   },
   {
