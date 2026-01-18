@@ -33,13 +33,13 @@ runcppio() {
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/nalt/lib/ac-library-master
 ulimit -s unlimited
 
-# WSL Display (Adjusted for Zsh syntax if needed, but standard shell should work)
-export DISPLAY=$(/mnt/c/Windows/System32/ipconfig.exe | grep -A 4 "vEthernet (WSL)" | grep "IPv4" | awk '{print $NF}'):0
+# WSL Display
+# export DISPLAY=$(/mnt/c/Windows/System32/ipconfig.exe | grep -A 4 "vEthernet (WSL)" | grep "IPv4" | awk '{print $NF}'):0
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
 # Neovim Tutor Aliases
 alias vimtutor1='nvim -c "Tutor ja/vim-01-beginner"'
@@ -52,11 +52,11 @@ alias zn='npx zenn new:article'
 # PATH
 export PATH="$PATH:/home/nalt/.local/bin"
 
-# WezTerm OSC 7 support for Zsh
+# WezTerm OSC 7 support
 if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
-  function wezterm_osc7 {
-    printf "\033]7;file://%s%s\033\\" "$HOSTNAME" "$PWD"
-  }
-  autoload -Uz add-zsh-hook
-  add-zsh-hook precmd wezterm_osc7
+    wezterm_osc7() {
+        printf "\033]7;file://%s%s\033\\" "$HOST" "$PWD"
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd wezterm_osc7
 fi
