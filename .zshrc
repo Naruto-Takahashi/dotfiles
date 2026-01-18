@@ -59,4 +59,4 @@ if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
     }
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd wezterm_osc7
-fi
+fi. "$HOME/.cargo/env"

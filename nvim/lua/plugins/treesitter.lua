@@ -11,7 +11,7 @@ return {
     -- require("nvim-treesitter.configs") は廃止されたため、直接 setup を呼びます
     require("nvim-treesitter").setup({
       ensure_installed = { 
-        "c", "cpp", "lua", "vim", "vimdoc", "query", 
+        "rust", "c", "cpp", "lua", "vim", "vimdoc", "query", 
         "python", "javascript", "typescript", "markdown", "markdown_inline" 
       },
       highlight = {
