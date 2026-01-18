@@ -65,16 +65,9 @@ vim.keymap.set("n", "<leader>m", function()
   local cmd
   if vim.fn.has("win32") == 1 then
     cmd = "start " .. url
-  elseif vim.fn.has("unix") == 1 then
-    if vim.fn.executable("wslview") == 1 then
-      cmd = "wslview " .. url
-    elseif vim.fn.executable("xdg-open") == 1 then
-      cmd = "xdg-open " .. url
-    end
-  end
-  if cmd then
-    vim.fn.jobstart(cmd, { detach = true })
   else
-    print("Could not find a command to open the browser.")
+    -- WSL / Linux: Use powershell.exe to open the browser on Windows
+    cmd = string.format("powershell.exe -Command Start-Process '%s'", url)
   end
+  vim.fn.jobstart(cmd, { detach = true })
 end, { desc = "Open KEYBINDINGS.md on GitHub" })
