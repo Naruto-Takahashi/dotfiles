@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    bigfile = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
@@ -34,8 +35,20 @@ return {
         { section = "startup", hl = "SnacksDashboardDesc", padding = 1 },
       },
     },
+    indent = { enabled = true },
+    input = { enabled = true },
     notifier = { enabled = true },
+    quickfile = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
     terminal = { enabled = true },
+    lazygit = { enabled = true },
+  },
+  keys = {
+    { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
+    { "<leader>lf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
+    { "<leader>ll", function() Snacks.lazygit.log() end, desc = "Lazygit Log (CWD)" },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
