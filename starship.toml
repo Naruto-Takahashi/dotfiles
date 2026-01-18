@@ -7,12 +7,7 @@ $git_status\
 \n$character\
 """
 
-right_format = """
-$cmd_duration\
-$username\
-✨
-$time\
-"""
+right_format = """$cmd_duration$username ✨ $time"""
 
 # コマンドラインに1行分のスペースを入れる
 add_newline = true
