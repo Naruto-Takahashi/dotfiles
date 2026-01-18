@@ -60,7 +60,7 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right and Stay" })
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight" })
 
 -- Open KEYBINDINGS on GitHub
-vim.keymap.set("n", "<leader><leader>m", function()
+vim.keymap.set("n", "<leader>m", function()
   local url = "https://github.com/Naruto-Takahashi/dotfiles/blob/main/nvim/KEYBINDINGS.md"
   local cmd
   if vim.fn.has("win32") == 1 then
