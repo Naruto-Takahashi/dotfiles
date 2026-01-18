@@ -59,4 +59,51 @@ if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
     }
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd wezterm_osc7
-fi. "$HOME/.cargo/env"
+fi
+
+. "$HOME/.cargo/env"
+
+# --- Added by Gemini ---
+
+# zsh-autosuggestions
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# fzf
+if [ -d ~/.fzf ]; then
+    export PATH="$PATH:$HOME/.fzf/bin"
+    source ~/.fzf/shell/completion.zsh 2> /dev/null
+    source ~/.fzf/shell/key-bindings.zsh
+    export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+fi
+
+# zoxide (better cd)
+if command -v zoxide >/dev/null; then
+    eval "$(zoxide init zsh)"
+    alias cd='z'
+fi
+
+# eza (better ls)
+if command -v eza >/dev/null; then
+    alias ls='eza --icons --git'
+    alias ll='eza -alF --icons --git'
+    alias la='eza -a --icons --git'
+    alias l='eza -F --icons --git'
+    alias tree='eza --tree --icons'
+fi
+
+# bat (better cat)
+if command -v bat >/dev/null; then
+    alias cat='bat'
+fi
+
+# fd (alternative to find)
+if command -v fdfind >/dev/null; then
+    alias fd='fdfind'
+fi
+
+# lazygit
+if command -v lazygit >/dev/null; then
+    alias lg='lazygit'
+fi
