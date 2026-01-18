@@ -1,26 +1,26 @@
 /*
     =============================================================================
-    メイン AutoHotkey スクリプト
-    説明: キーリマップ，Vim風ナビゲーション，およびIME統合．
+    Main AutoHotkey Script
+    Description: Key remappings, Vim-like navigation, and IME integration.
     =============================================================================
 */
 
 ; =============================================================================
-; グローバル設定
+; Global Settings
 ; =============================================================================
 #NoEnv
 SendMode Input
 SetWorkingDir %A_ScriptDir%
 
-; 外部ライブラリの読み込み
+; Load external libraries
 #Include %A_ScriptDir%\lib\ime_functions.ahk
 
 ; =============================================================================
-; キーリマップ
+; Key Remapping
 ; =============================================================================
 
-; --- CapsLock -> 左Control ---
-; F13（レジストリ/ソフトウェアでCapsLockからマップされたもの）を左Controlにリマップ
+; --- CapsLock -> Left Control ---
+; Remaps F13 (mapped from CapsLock in Registry/Software) to Left Control
 *F13::
     Send, {LCtrl down}
     KeyWait, F13
@@ -28,71 +28,71 @@ SetWorkingDir %A_ScriptDir%
 Return
 
 ; =============================================================================
-; Spaceキーの拡張 (SandS & Vimモード)
+; Space Key Enhancements (SandS & Vim Mode)
 ; =============================================================================
 
-; --- SandS (Space and Shift) 動作 ---
-; Spaceをタップ: Spaceを出力
+; --- SandS (Space and Shift) Behavior ---
+; Tap Space: Output Space
 Space Up::Send, {Space}
-; Shift + Space: Spaceを出力（リピート許可）
+; Shift + Space: Output Space (allows repeat)
 +Space::Send, {Space}
 
 
-; --- Vimナビゲーション (Space + HJKL) ---
+; --- Vim Navigation (Space + HJKL) ---
 Space & h::Send {Blind}{Left}
 Space & j::Send {Blind}{Down}
 Space & k::Send {Blind}{Up}
 Space & l::Send {Blind}{Right}
 
-; --- ナビゲーション拡張 ---
+; --- Navigation Extras ---
 Space & a::Send {Blind}{Home}
 Space & e::Send {Blind}{End}
 
-; --- 編集ショートカット ---
-Space & u:: Send, ^z          ; 元に戻す
+; --- Editing Shortcuts ---
+Space & u:: Send, ^z          ; Undo
 Space & b:: Send, {Backspace} ; Backspace
 Space & x:: Send, {Delete}    ; Delete
-^Space::    Send, ^{Space}    ; Ctrl + Space (スルー)
+^Space::    Send, ^{Space}    ; Ctrl + Space (Pass-through)
 
 
 ; =============================================================================
-; 仮想デスクトップ操作
+; Virtual Desktop Operations
 ; =============================================================================
 
-; --- デスクトップ切り替え (右) ---
-; RWin または RCtrl -> 次のデスクトップへ切り替え
+; --- Switch Desktop (Right) ---
+; RWin or RCtrl -> Switch to next desktop
 RWin:: Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 RCtrl::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 
-; --- ウィンドウを次のデスクトップへ移動 ---
-; Alt + RWin/RCtrl -> アクティブウィンドウを次のデスクトップへ移動
+; --- Move Window to Next Desktop ---
+; Alt + RWin/RCtrl -> Move active window to next desktop
 !RWin:: SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
 !RCtrl::SendInput, {LWin down}{LCtrl down}{LAlt down}{Right}{LAlt up}{LCtrl up}{LWin up}
 
 
 ; =============================================================================
-; IME & Vim統合
+; IME & Vim Integration
 ; =============================================================================
 
-; --- AltキーによるIME切り替え (Mac風) ---
-; 左Alt: IME OFF (英数)
+; --- Alt Key IME Switching (Mac-style) ---
+; Left Alt: IME OFF (English)
 ~LAlt Up::
     if (A_PriorHotkey == "~LAlt")
         IME_SET(0)
     Return
-~LAlt::SendInput, {vkE8} ; 無効化
+~LAlt::SendInput, {vkE8} ; Void
 
-; 右Alt: IME ON (日本語)
+; Right Alt: IME ON (Japanese)
 ~RAlt Up::
     if (A_PriorHotkey == "~RAlt")
         IME_SET(1)
     Return
-~RAlt::SendInput, {vkE8} ; 無効化
+~RAlt::SendInput, {vkE8} ; Void
 
 ; --- Vim Escape & IME OFF ---
-; Escapeを押すとEscを送信し，強制的にIMEをOFFにする
+; Pressing Escape sends Esc and forces IME OFF
 $Esc::
     Send, {Esc}
-    Sleep 10 ; IME切り替えの前にEscが処理されるようにわずかな遅延を入れる
+    Sleep 10 ; Slight delay to ensure Esc processes before IME switch
     IME_SET(0)
 Return
