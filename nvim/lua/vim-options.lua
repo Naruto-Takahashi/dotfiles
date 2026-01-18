@@ -58,3 +58,23 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right and Stay" })
 
 -- Clear Highlight
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight" })
+
+-- Open KEYBINDINGS on GitHub
+vim.keymap.set("n", "<leader>lk", function()
+  local url = "https://github.com/Naruto-Takahashi/dotfiles/blob/main/nvim/KEYBINDINGS.md"
+  local cmd
+  if vim.fn.has("win32") == 1 then
+    cmd = "start " .. url
+  elseif vim.fn.has("unix") == 1 then
+    if vim.fn.executable("wslview") == 1 then
+      cmd = "wslview " .. url
+    elseif vim.fn.executable("xdg-open") == 1 then
+      cmd = "xdg-open " .. url
+    end
+  end
+  if cmd then
+    vim.fn.jobstart(cmd, { detach = true })
+  else
+    print("Could not find a command to open the browser.")
+  end
+end, { desc = "Open KEYBINDINGS.md on GitHub" })
