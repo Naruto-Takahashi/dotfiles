@@ -107,3 +107,8 @@ fi
 if command -v lazygit >/dev/null; then
     alias lg='lazygit'
 fi
+
+# Zenn Aliases
+alias zp='npx zenn preview'
+alias zn='npx zenn new:article'
+alias zqr='~/dotfiles/bash/zqr'
