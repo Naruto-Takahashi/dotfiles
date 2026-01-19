@@ -9,10 +9,14 @@ if ! pgrep -x "ngrok" > /dev/null; then
 fi
 
 # URLを取得
-URL=$(curl -s http://localhost:4040/api/tunnels | grep -o 'https://[^"]*\.ngrok-free\.app')
+# ngrok-free.app, ngrok-free.dev, ngrok.io などに対応できるように修正
+URL=$(curl -s http://localhost:4040/api/tunnels | grep -o 'https://[^"]*ngrok[^"]*')
 
 if [ -z "$URL" ]; then
   echo "Error: Could not retrieve ngrok URL. Make sure ngrok is running properly."
+  # デバッグ用にAPIのレスポンスを表示（エラー時のみ）
+  echo "Debug: API Response:"
+  curl -s http://localhost:4040/api/tunnels
   exit 1
 fi
 
