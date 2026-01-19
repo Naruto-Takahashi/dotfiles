@@ -112,3 +112,4 @@ fi
 alias zp='npx zenn preview'
 alias zn='npx zenn new:article'
 alias zqr='~/dotfiles/bash/zqr'
+alias zstop='pkill ngrok && echo "ngrok stopped."'
