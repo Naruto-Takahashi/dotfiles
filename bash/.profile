@@ -28,3 +28,4 @@ fi
 
 # Created by `pipx` on 2025-09-11 09:26:26
 export PATH="$PATH:/home/nalt/.local/bin"
+. "$HOME/.cargo/env"

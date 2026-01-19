@@ -57,7 +57,7 @@
     "erlang": "escript",
     "spwn": "spwn build",
     "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
-    "gleam": "gleam run -m $fileNameWithoutExt"
+    "gleam": "gleam run -m $fileNameWithoutExt",
   },
   "editor.renderWhitespace": "all",
   "workbench.editor.splitInGroupLayout": "vertical",
@@ -82,7 +82,20 @@
 
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#33333350",
-    "editor.lineHighlightBorder": "#55555580"
+    "editor.lineHighlightBorder": "#55555580",
+    "editor.background": "#000000",
+    "sideBar.background": "#000000",
+    "activityBar.background": "#000000",
+    "statusBar.background": "#000000",
+    "panel.background": "#000000",
+    "terminal.background": "#000000",
+    "titleBar.activeBackground": "#000000",
+    "titleBar.inactiveBackground": "#000000",
+    "editorGroupHeader.tabsBackground": "#000000",
+    "tab.activeBackground": "#000000",
+    "tab.inactiveBackground": "#000000",
+    "tab.border": "#000000",
+    "sideBarSectionHeader.background": "#000000"
   },
 
   "[cpp]": {
@@ -90,19 +103,19 @@
     "editor.formatOnSave": true,
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
   },
 
   "editor.bracketPairColorization.enabled": true,
   "editor.language.brackets": [
     ["{", "}"],
-    ["[", "]"]
+    ["[", "]"],
   ],
   "editor.minimap.enabled": false,
   "liveServer.settings.donotShowInfoMsg": true,
   "editor.unicodeHighlight.allowedCharacters": {
     "．": true,
-    "，": true
+    "，": true,
   },
   "workbench.editor.empty.hint": "hidden",
   "editor.colorDecorators": false,
@@ -118,17 +131,49 @@
   "vim.handleKeys": {
     "C-f": false,
     "C-p": false,
-    "C-j": false
+    "C-j": false,
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<Esc>"],
-      "commands": [":nohl"]
-    }
+      "commands": [":nohl"],
+    },
   ],
-  
-  "glassit.alpha": 255,
+
+  "glassit.alpha": 205,
   "editor.allowVariableFonts": false,
   "editor.fontFamily": "'HackGen Console', Consolas, 'Courier New', monospace",
-  "http.systemCertificatesNode": true
+"http.systemCertificatesNode": true,
+"highlight.regexes": {
+	"((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+		"filterFileRegex": ".*(?<!CHANGELOG.md)$",
+		"decorations": [
+			{
+				"overviewRulerColor": "#ffcc00",
+				"backgroundColor": "#ffcc00",
+				"color": "#1f1f1f",
+				"fontWeight": "bold"
+			},
+			{
+				"backgroundColor": "#ffcc00",
+				"color": "#1f1f1f"
+			}
+		]
+	},
+	"((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+		"filterFileRegex": ".*(?<!CHANGELOG.md)$",
+		"decorations": [
+			{
+				"overviewRulerColor": "#cc0000",
+				"backgroundColor": "#cc0000",
+				"color": "#1f1f1f",
+				"fontWeight": "bold"
+			},
+			{
+				"backgroundColor": "#cc0000",
+				"color": "#1f1f1f"
+			}
+		]
+	}
+},
 }

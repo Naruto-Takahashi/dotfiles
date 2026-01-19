@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# ngrokが起動していない場合は起動する
+if ! pgrep -x "ngrok" > /dev/null; then
+  echo "Starting ngrok..."
+  ngrok http 8000 > /dev/null 2>&1 &
+  # Wait for ngrok to initialize
+  sleep 3
+fi
+
+# URLを取得
+URL=$(curl -s http://localhost:4040/api/tunnels | grep -o 'https://[^"]*\.ngrok-free\.app')
+
+if [ -z "$URL" ]; then
+  echo "Error: Could not retrieve ngrok URL. Make sure ngrok is running properly."
+  exit 1
+fi
+
+echo "--------------------------------------------------"
+echo "📱 Mobile Preview URL: $URL"
+echo "--------------------------------------------------"
+qrencode -t ANSIUTF8 "$URL"
+echo "--------------------------------------------------"

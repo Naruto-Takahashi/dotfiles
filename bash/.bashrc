@@ -162,3 +162,5 @@ alias vimtutor2='nvim -c "Tutor ja/vim-02-beginner"'
 
 alias zp='npx zenn preview'
 alias zn='npx zenn new:article'
+. "$HOME/.cargo/env"
+alias zqr='~/dotfiles/bash/zqr'
