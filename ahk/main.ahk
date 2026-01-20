@@ -96,3 +96,10 @@ $Esc::
     Sleep 10 ; Slight delay to ensure Esc processes before IME switch
     IME_SET(0)
 Return
+
+; --- Ctrl + [ -> Escape & IME OFF ---
+^[::
+    Send, {Esc}
+    Sleep 10
+    IME_SET(0)
+Return
