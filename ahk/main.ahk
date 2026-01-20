@@ -92,14 +92,14 @@ RCtrl::Send, {LWin down}{LCtrl down}{Right}{LCtrl up}{LWin up}
 ; --- Vim Escape & IME OFF ---
 ; Pressing Escape sends Esc and forces IME OFF
 $Esc::
-    Send, {Esc}
+    SendInput, {LCtrl up}{RCtrl up}{Esc}
     Sleep 10 ; Slight delay to ensure Esc processes before IME switch
     IME_SET(0)
 Return
 
 ; --- Ctrl + [ -> Escape & IME OFF ---
 ^[::
-    Send, {Esc}
+    SendInput, {LCtrl up}{RCtrl up}{Esc}
     Sleep 10
     IME_SET(0)
 Return
