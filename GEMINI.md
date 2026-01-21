@@ -16,3 +16,10 @@
 - **Neovim構成**: `lazy.nvim` によるプラグイン管理、`snacks.nvim` によるUI拡張。詳細は `~/dotfiles/nvim/KEYBINDINGS.md` を参照。
 - **WezTerm構成**: Windows側で動作。設定は `~/dotfiles/wezterm` で管理。詳細は `~/dotfiles/wezterm/KEYBINDINGS.md` を参照。
 - **ブラウザ操作**: WSLからブラウザを開く際は `powershell.exe -Command Start-Process 'URL'` を使用すること。
+
+---
+## クリップボード画像連携 (\cコマンド)
+- ユーザーが `/c` コマンドを実行し，出力に "Image captured." が含まれていた場合，あなたは**直ちに** `read_file`
+ツールを使用して，コマンド内で指定された画像パス（通常は `.gemini/tmp/clipboard_image.png`）を読み込んでください．
+- ユーザーからの `/v` コマンド（画像読み込み指示）を待つ必要はありません．能動的に画像を読み込み，その内容を把握してください．
+- 読み込み後は，「画像を確認しました」等の短い応答を返し，ユーザーの質問を待ってください． 
