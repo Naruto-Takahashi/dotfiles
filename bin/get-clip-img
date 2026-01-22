@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# デフォルトの保存先
+OUTPUT_FILE="${1:-/home/nalt/.cache/clipboard_image.png}"
+OUTPUT_DIR=$(dirname "$OUTPUT_FILE")
+mkdir -p "$OUTPUT_DIR"
+
+# PowerShellコマンド
+# WindowsのTempフォルダに画像を保存し、そのパスを出力する
+# 成功時はパスを出力して終了コード0、失敗時は終了コード1
+PS_COMMAND='
+try {
+    Add-Type -AssemblyName System.Windows.Forms
+    if ([System.Windows.Forms.Clipboard]::ContainsImage()) {
+        $image = [System.Windows.Forms.Clipboard]::GetImage()
+        # 一時ファイル名を生成
+        $tempPath = [System.IO.Path]::GetTempFileName()
+        # 拡張子 .png を付与した新しいパス
+        $imagePath = $tempPath + ".png"
+        $image.Save($imagePath, [System.Drawing.Imaging.ImageFormat]::Png)
+        # 元の空の一時ファイルは削除
+        Remove-Item $tempPath
+        # 保存したパスを出力
+        Write-Output $imagePath
+        exit 0
+    } else {
+        exit 1
+    }
+} catch {
+    exit 1
+}
+'
+
+# PowerShellを実行してWindows側の一時ファイルパスを取得
+# tr -d '\r' でWindowsの改行コードを除去
+WIN_TEMP_PATH=$(powershell.exe -NoProfile -Command "$PS_COMMAND" | tr -d '\r')
+
+# PowerShellの終了コードを確認
+if [ $? -ne 0 ] || [ -z "$WIN_TEMP_PATH" ]; then
+    echo "Error: No image found in clipboard or failed to save."
+    exit 1
+fi
+
+# WSLパスに変換
+WSL_TEMP_PATH=$(wslpath -u "$WIN_TEMP_PATH")
+
+# ファイルを目的の場所に移動
+if [ -f "$WSL_TEMP_PATH" ]; then
+    mv "$WSL_TEMP_PATH" "$OUTPUT_FILE"
+    echo "Image saved to: $OUTPUT_FILE"
+else
+    echo "Error: Temporary file not found at $WSL_TEMP_PATH"
+    exit 1
+fi
