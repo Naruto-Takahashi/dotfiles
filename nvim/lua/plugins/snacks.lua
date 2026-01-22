@@ -69,6 +69,9 @@ return {
 
       -- キー部分をピンクで固定
       vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = key_pink, bold = true })
+
+      -- アイコンを茶色に設定
+      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = brown_light })
     end
 
     -- 描画タイミングに合わせて色を適用
