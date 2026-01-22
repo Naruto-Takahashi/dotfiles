@@ -14,6 +14,24 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # =============================================================================
+# History
+# =============================================================================
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY          # Share history between sessions
+setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate entries
+setopt HIST_IGNORE_SPACE      # Don't save commands starting with space
+setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks
+
+# =============================================================================
+# Completion
+# =============================================================================
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case insensitive
+zstyle ':completion:*' menu select                  # Select with cursor
+
+# =============================================================================
 # Tool Initialization
 # =============================================================================
 # Starship
@@ -34,6 +52,8 @@ if [ -d ~/.fzf ]; then
     source ~/.fzf/shell/completion.zsh 2> /dev/null
     source ~/.fzf/shell/key-bindings.zsh
     export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+    export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+    export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 fi
 
 # zoxide (better cd)
