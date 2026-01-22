@@ -106,7 +106,7 @@ runcppio() {
 # WezTerm OSC 7 support
 if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
     wezterm_osc7() {
-        printf "\033]7;file://%s%s\033\" "$HOST" "$PWD"
+        printf "\033]7;file://%s%s\033\\" "$HOST" "$PWD"
     }
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd wezterm_osc7
