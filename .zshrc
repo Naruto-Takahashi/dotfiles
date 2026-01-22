@@ -143,6 +143,11 @@ mkcd() {
     cd "$1" || return
 }
 
+# Auto ls after cd
+function chpwd() {
+    ls
+}
+
 runcpp() {
     g++ -std=c++20 -O2 "$1" -o "${1%.cpp}.out" && "./${1%.cpp}.out"
 }
