@@ -6,10 +6,22 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  config = function()
+  opts = {
+    window = {
+      position = "current",
+      mappings = {
+        ["<space>"] = "none",
+      },
+    },
+    filesystem = {
+      hijack_netrw_behavior = "open_current",
+      use_libuv_file_watcher = true,
+    },
+  },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+    
     -- <leader>e でファイルツリーの開閉（トグル）
     vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', {})
-    
-    -- 必要なら、起動時にNetrwを無効化する設定などをここに書くこともあります
   end
 }
