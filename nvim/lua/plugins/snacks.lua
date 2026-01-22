@@ -61,6 +61,8 @@ return {
     { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>lf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
     { "<leader>ll", function() Snacks.lazygit.log() end, desc = "Lazygit Log (CWD)" },
+    { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
