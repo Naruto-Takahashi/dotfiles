@@ -45,6 +45,34 @@ fi
 # =============================================================================
 # Aliases
 # =============================================================================
+# Utility
+alias c='clear'
+alias reload='source ~/.zshrc && echo "Sourced .zshrc"'
+alias path='echo $PATH | tr ":" "\n"'
+
+# Safety & Verbosity
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# System
+alias df='df -h'
+alias free='free -h'
+
+# Git
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gs='git status'
+
+# Vim
+alias vim='nvim'
+
 # ls / eza
 if command -v eza >/dev/null; then
     alias ls='eza --icons --git'
