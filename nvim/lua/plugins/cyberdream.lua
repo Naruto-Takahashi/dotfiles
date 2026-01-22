@@ -22,7 +22,6 @@ return {
         mini = true,
         cmp = true,
         gitsigns = true,
-        nvimtree = true,
         treesitter = true,
         whichkey = true,
         indentblankline = true,
