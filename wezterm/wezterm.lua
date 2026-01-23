@@ -7,6 +7,7 @@ config.font_size = 12.0
 config.initial_cols = 120
 config.initial_rows = 35
 config.use_ime = true
+config.ime_preedit_rendering = "System"
 config.warn_about_missing_glyphs = false
 config.window_background_opacity = 0.75
 config.macos_window_background_blur = 20
