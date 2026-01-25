@@ -1,0 +1,46 @@
+/*
+ * Vivaldi Tab Bar Auto-Hide (Left Position)
+ *
+ * Instructions:
+ * 1. Go to vivaldi://experiments and enable "Allow for using CSS modifications".
+ * 2. Go to Settings > Appearance > Custom UI Modifications and select the folder containing this file.
+ * 3. Restart Vivaldi.
+ */
+
+:root {
+    --peek-width: 15px; /* マウスを反応させる幅 */
+    --transition-speed: 0.2s;
+}
+
+/* ==========================================================================
+   Left Tab Bar Auto-Hide
+   ========================================================================== */
+#browser.tabs-left .tabbar-wrapper {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 9999; /* 最前面 */
+    transition: transform var(--transition-speed), opacity var(--transition-speed) !important;
+    
+    /* 通常時: 画面左外へ移動。ただし peek-width 分だけ残す */
+    transform: translateX(calc(-100% + var(--peek-width)));
+    opacity: 0; 
+    
+    /* デザイン: テーマ色に合わせた半透明すりガラス */
+    background-color: color-mix(in srgb, var(--colorBg), transparent 20%) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* ホバー時: 元の位置に戻す */
+#browser.tabs-left .tabbar-wrapper:hover,
+#browser.tabs-left .tabbar-wrapper:focus-within {
+    transform: translateX(0);
+    opacity: 1;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+/* コンテンツ領域の左マージンを消して全画面化 */
+#browser.tabs-left #main {
+    margin-left: 0 !important;
+}
