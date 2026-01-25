@@ -1,62 +1,62 @@
-# GlazeWM Keybindings
+# GlazeWM キーバインド一覧
 
-## General Keybindings
+## 一般 (General)
 
-| Bindings | Commands | Description |
+| キー | コマンド | 説明 |
 | :--- | :--- | :--- |
-| `alt+h`, `alt+left` | `focus --direction left` | Focus window to the left |
-| `alt+l`, `alt+right` | `focus --direction right` | Focus window to the right |
-| `alt+k`, `alt+up` | `focus --direction up` | Focus window above |
-| `alt+j`, `alt+down` | `focus --direction down` | Focus window below |
-| `alt+shift+h`, `alt+shift+left` | `move --direction left` | Move window to the left |
-| `alt+shift+l`, `alt+shift+right` | `move --direction right` | Move window to the right |
-| `alt+shift+k`, `alt+shift+up` | `move --direction up` | Move window up |
-| `alt+shift+j`, `alt+shift+down` | `move --direction down` | Move window down |
-| `alt+u` | `resize --width -2%` | Resize width -2% |
-| `alt+p` | `resize --width +2%` | Resize width +2% |
-| `alt+o` | `resize --height +2%` | Resize height +2% |
-| `alt+i` | `resize --height -2%` | Resize height -2% |
-| `alt+r` | `wm-enable-binding-mode --name resize` | Enter Resize mode |
-| `alt+shift+p` | `wm-enable-binding-mode --name pause` | Enter Pause mode (disable all bindings) |
-| `alt+v` | `toggle-tiling-direction` | Toggle tiling direction (Horizontal/Vertical) |
-| `alt+shift+space` | `toggle-floating --centered` | Toggle floating mode (centered) |
-| `alt+t` | `toggle-tiling` | Toggle tiling mode |
-| `alt+f` | `toggle-fullscreen` | Toggle fullscreen |
-| `alt+m` | `toggle-minimized` | Minimize window |
-| `alt+shift+q` | `close` | Close window |
-| `alt+shift+e` | `wm-exit` | Exit GlazeWM |
-| `alt+shift+r` | `wm-reload-config` | Reload configuration |
-| `alt+shift+w` | `wm-redraw` | Redraw all windows |
-| `alt+enter` | `shell-exec wezterm-gui` | Launch WezTerm |
+| `alt+h`, `alt+left` | `focus --direction left` | 左のウィンドウにフォーカス |
+| `alt+l`, `alt+right` | `focus --direction right` | 右のウィンドウにフォーカス |
+| `alt+k`, `alt+up` | `focus --direction up` | 上のウィンドウにフォーカス |
+| `alt+j`, `alt+down` | `focus --direction down` | 下のウィンドウにフォーカス |
+| `alt+shift+h`, `alt+shift+left` | `move --direction left` | ウィンドウを左に移動 |
+| `alt+shift+l`, `alt+shift+right` | `move --direction right` | ウィンドウを右に移動 |
+| `alt+shift+k`, `alt+shift+up` | `move --direction up` | ウィンドウを上に移動 |
+| `alt+shift+j`, `alt+shift+down` | `move --direction down` | ウィンドウを下に移動 |
+| `alt+u` | `resize --width -2%` | 幅を縮小 (-2%) |
+| `alt+p` | `resize --width +2%` | 幅を拡大 (+2%) |
+| `alt+o` | `resize --height +2%` | 高さを拡大 (+2%) |
+| `alt+i` | `resize --height -2%` | 高さを縮小 (-2%) |
+| `alt+r` | `wm-enable-binding-mode --name resize` | リサイズモードに入る |
+| `alt+shift+p` | `wm-enable-binding-mode --name pause` | 一時停止モードに入る (全ショートカット無効化) |
+| `alt+v` | `toggle-tiling-direction` | タイリング方向の切り替え (水平/垂直) |
+| `alt+shift+space` | `toggle-floating --centered` | フローティングモード切替 (中央配置) |
+| `alt+t` | `toggle-tiling` | タイリングモード切替 |
+| `alt+f` | `toggle-fullscreen` | フルスクリーン切替 |
+| `alt+m` | `toggle-minimized` | ウィンドウを最小化 |
+| `alt+shift+q` | `close` | ウィンドウを閉じる |
+| `alt+shift+e` | `wm-exit` | GlazeWMを終了 |
+| `alt+shift+r` | `wm-reload-config` | 設定をリロード |
+| `alt+shift+w` | `wm-redraw` | 全ウィンドウを再描画 |
+| `alt+enter` | `shell-exec wezterm-gui` | WezTermを起動 |
 
-## Workspace Management
+## ワークスペース管理 (Workspace Management)
 
-| Bindings | Commands | Description |
+| キー | コマンド | 説明 |
 | :--- | :--- | :--- |
-| `alt+s` | `focus --next-workspace` | Focus next workspace |
-| `alt+a` | `focus --prev-workspace` | Focus previous workspace |
-| `alt+d` | `focus --recent-workspace` | Focus recent workspace |
-| `alt+1` ... `alt+9` | `focus --workspace 1` ... | Switch to workspace 1-9 |
-| `alt+shift+a` | `move-workspace --direction left` | Move workspace to left monitor |
-| `alt+shift+f` | `move-workspace --direction right` | Move workspace to right monitor |
-| `alt+shift+d` | `move-workspace --direction up` | Move workspace to up monitor |
-| `alt+shift+s` | `move-workspace --direction down` | Move workspace to down monitor |
-| `alt+shift+1` ... `alt+shift+9` | `move --workspace 1`, `focus ...` | Move window to workspace 1-9 and follow |
+| `alt+s` | `focus --next-workspace` | 次のワークスペースへ |
+| `alt+a` | `focus --prev-workspace` | 前のワークスペースへ |
+| `alt+d` | `focus --recent-workspace` | 直前のワークスペースへ |
+| `alt+1` ... `alt+9` | `focus --workspace 1` ... | ワークスペース 1-9 へ切り替え |
+| `alt+shift+a` | `move-workspace --direction left` | ワークスペースを左のモニターへ移動 |
+| `alt+shift+f` | `move-workspace --direction right` | ワークスペースを右のモニターへ移動 |
+| `alt+shift+d` | `move-workspace --direction up` | ワークスペースを上のモニターへ移動 |
+| `alt+shift+s` | `move-workspace --direction down` | ワークスペースを下のモニターへ移動 |
+| `alt+shift+1` ... `alt+shift+9` | `move --workspace 1`, `focus ...` | ウィンドウをワークスペース 1-9 へ移動して追従 |
 
-## Binding Modes
+## モード (Binding Modes)
 
-### Resize Mode (`alt+r`)
+### リサイズモード (`alt+r`)
 
-| Bindings | Commands | Description |
+| キー | コマンド | 説明 |
 | :--- | :--- | :--- |
-| `h`, `left` | `resize --width -2%` | Shrink width |
-| `l`, `right` | `resize --width +2%` | Grow width |
-| `k`, `up` | `resize --height +2%` | Grow height |
-| `j`, `down` | `resize --height -2%` | Shrink height |
-| `escape`, `enter` | `wm-disable-binding-mode ...` | Exit Resize mode |
+| `h`, `left` | `resize --width -2%` | 幅を縮める |
+| `l`, `right` | `resize --width +2%` | 幅を広げる |
+| `k`, `up` | `resize --height +2%` | 高さを広げる |
+| `j`, `down` | `resize --height -2%` | 高さを縮める |
+| `escape`, `enter` | `wm-disable-binding-mode ...` | リサイズモードを終了 |
 
-### Pause Mode (`alt+shift+p`)
+### 一時停止モード (`alt+shift+p`)
 
-| Bindings | Commands | Description |
+| キー | コマンド | 説明 |
 | :--- | :--- | :--- |
-| `alt+shift+p` | `wm-disable-binding-mode ...` | Exit Pause mode |
+| `alt+shift+p` | `wm-disable-binding-mode ...` | 一時停止モードを終了 |
