@@ -127,9 +127,9 @@ config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 2000 }
 
-wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
-end)
+-- wezterm.on("gui-startup", function(cmd)
+--   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+--   window:gui_window():maximize()
+-- end)
 
 return config
