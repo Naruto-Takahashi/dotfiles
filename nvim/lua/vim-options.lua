@@ -56,6 +56,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate Right" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left and Stay" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right and Stay" })
 
+-- Exit Insert Mode with jk
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit Insert Mode" })
+
 -- Clear Highlight
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight" })
 
