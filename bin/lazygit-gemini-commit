@@ -6,6 +6,7 @@
 
 # APIキーの確認
 if [ -z "$GEMINI_API_KEY" ]; then
+  [ -f ~/.env ] && source ~/.env
   [ -f ~/.zshrc ] && source ~/.zshrc
   [ -f ~/.bashrc ] && source ~/.bashrc
   [ -f ~/.profile ] && source ~/.profile
