@@ -20,18 +20,14 @@ return {
       -- Neovim 0.11+ の新しい作法 (Reverted to original working state)
       
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      local servers = { "lua_ls", "pylsp" } -- clangd は個別に設定するためここから外す
-
+      
+      -- 1. 普通のサーバー (特別な設定不要)
+      local servers = { "lua_ls", "pylsp" }
       for _, server in ipairs(servers) do
-        -- vim.lsp.enable(server) -- Neovim 0.11+ (今回は lspconfig の setup を使う形に統一しても良いが、既存踏襲)
-        -- lspconfig を使う場合は通常 setup() を呼ぶのが定石
-        lspconfig[server].setup({
-            capabilities = capabilities
-        })
+        vim.lsp.enable(server)
       end
       
-      -- clangd (C++) 個別設定
+      -- 2. clangd (C++) 個別設定
       local clangd_cmd = { "clangd", "--background-index" }
       local cxx_path = vim.fn.exepath("g++")
       if cxx_path == "" then
@@ -43,10 +39,14 @@ return {
         table.insert(clangd_cmd, "--query-driver=" .. cxx_path .. ",/usr/bin/g++*,/usr/bin/clang++*")
       end
 
-      lspconfig.clangd.setup({
+      -- vim.lsp.config に設定を注入 (Neovim 0.11+ / nvim-lspconfig update 対応)
+      -- 既存の設定があればマージ、なければ新規作成
+      vim.lsp.config["clangd"] = vim.tbl_deep_extend("force", vim.lsp.config["clangd"] or {}, {
         capabilities = capabilities,
         cmd = clangd_cmd,
       })
+      
+      vim.lsp.enable("clangd")
 
       -- LspAttach の設定 (共通)
       vim.api.nvim_create_autocmd("LspAttach", {
