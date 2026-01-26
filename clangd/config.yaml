@@ -1,0 +1,2 @@
+CompileFlags:
+  QueryDriver: "/usr/bin/g++,/usr/bin/c++,/usr/bin/clang++,/usr/bin/*"
