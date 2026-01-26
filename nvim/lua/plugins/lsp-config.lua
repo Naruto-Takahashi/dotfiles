@@ -17,37 +17,23 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      -- Neovim 0.11+ の新しい作法
+      -- Neovim 0.11+ の新しい作法 (Reverted to original working state)
       
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      
-      -- lua_ls
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
+      local servers = { "lua_ls", "pylsp", "clangd" }
 
-      -- pylsp
-      lspconfig.pylsp.setup({
-        capabilities = capabilities,
-      })
-
-      -- clangd (C++)
-      -- コンパイラのパスを動的に取得して --query-driver に設定する
-      local clangd_cmd = { "clangd", "--background-index" }
-      local cxx_path = vim.fn.exepath("g++")
-      if cxx_path == "" then
-        cxx_path = vim.fn.exepath("clang++")
+      for _, server in ipairs(servers) do
+        vim.lsp.enable(server)
+        
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client then
+              client.capabilities = vim.tbl_deep_extend("force", client.capabilities, capabilities)
+            end
+          end,
+        })
       end
-
-      if cxx_path ~= "" then
-        table.insert(clangd_cmd, "--query-driver=" .. cxx_path)
-      end
-
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-        cmd = clangd_cmd,
-      })
 
       -- キーマッピング (LSP関連)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
