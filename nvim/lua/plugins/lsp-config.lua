@@ -33,14 +33,20 @@ return {
       })
 
       -- clangd (C++)
-      -- --query-driver を追加して、システム上の g++ のパスを自動認識させる
+      -- コンパイラのパスを動的に取得して --query-driver に設定する
+      local clangd_cmd = { "clangd", "--background-index" }
+      local cxx_path = vim.fn.exepath("g++")
+      if cxx_path == "" then
+        cxx_path = vim.fn.exepath("clang++")
+      end
+
+      if cxx_path ~= "" then
+        table.insert(clangd_cmd, "--query-driver=" .. cxx_path)
+      end
+
       lspconfig.clangd.setup({
         capabilities = capabilities,
-        cmd = {
-          "clangd",
-          "--background-index",
-          "--query-driver=/usr/bin/g++,/usr/bin/c++",
-        },
+        cmd = clangd_cmd,
       })
 
       -- キーマッピング (LSP関連)
