@@ -61,6 +61,8 @@ return {
     { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>lf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
     { "<leader>ll", function() Snacks.lazygit.log() end, desc = "Lazygit Log (CWD)" },
+    { "<leader>zn", function() Snacks.terminal("npx zenn new:article", { win = { position = "float" } }) end, desc = "Zenn New Article" },
+    { "<leader>zp", function() Snacks.terminal("npx zenn preview", { win = { position = "right" } }) end, desc = "Zenn Preview" },
     { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal", mode = { "n", "t" } },
     { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore", mode = { "n", "t" } },
   },

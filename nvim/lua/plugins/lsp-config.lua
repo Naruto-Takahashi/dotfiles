@@ -10,7 +10,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pylsp", "clangd" },
+        ensure_installed = { "lua_ls", "pylsp", "marksman", "clangd" },
       })
     end,
   },
@@ -22,7 +22,7 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       
       -- 1. 普通のサーバー (特別な設定不要)
-      local servers = { "lua_ls", "pylsp" }
+      local servers = { "lua_ls", "pylsp", "marksman" }
       for _, server in ipairs(servers) do
         vim.lsp.enable(server)
       end
