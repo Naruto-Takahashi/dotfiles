@@ -1,78 +1,35 @@
 /*
- * Vivaldi Auto-Hide Customizations (Tab Bar & Panel)
+ * Vivaldi Custom UI - Always Visible Floating Tab Bar
  * Optimized for visibility and glass texture. Borderless version.
  */
 
 /* ==========================================================================
-   Left Tab Bar Auto-Hide
+   Top Tab Bar - Always Visible Floating (Overlay)
    ========================================================================== */
-#browser.tabs-left .tabbar-wrapper {
+#browser.tabs-top .tabbar-wrapper {
     position: absolute !important;
     top: 0;
-    left: 0;
-    height: 100vh;
+    left: 40px; /* 左端のメニューボタン分を空ける（必要に応じて数値を微調整してください） */
+    width: calc(100% - 40px) !important;
+    height: auto !important;
     z-index: 9999;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.25s ease !important;
     
-    transform: translateX(calc(-100% + 15px));
-    opacity: 0; 
+    /* 常に表示 */
+    transform: translateY(0) !important;
+    opacity: 1 !important;
 
-    /* 質感: 境界線なし */
-    background-color: color-mix(in srgb, var(--colorBg), transparent 30%) !important;
+    /* 質感: 境界線なし・完全透明（ブラーのみ） */
+    background-color: transparent !important;
     backdrop-filter: blur(30px) saturate(150%) brightness(1.1) !important;
     border: none !important;
+    box-shadow: none !important;
 }
 
-#browser.tabs-left .tabbar-wrapper:hover,
-#browser.tabs-left .tabbar-wrapper:focus-within {
-    transform: translateX(0);
-    opacity: 1;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.3);
-}
-
-#browser.tabs-left #main {
-    margin-left: 0 !important;
+/* メインコンテンツをタブバーの分だけ下げずに、全画面で背後に回し込む */
+#browser.tabs-top #main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     border: none !important;
-}
-
-/* ==========================================================================
-   Panel Auto-Hide (Right Position)
-   ========================================================================== */
-#panels-container.right {
-    position: fixed !important;
-    right: 0;
-    top: 31px; /* さらに1px上げて究極の微調整 */
-    height: calc(100vh - 31px);
-    z-index: 99999;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.25s ease !important;
-    
-    transform: translateX(calc(100% - 25px));
-    opacity: 0.1;
-
-    background-color: color-mix(in srgb, var(--colorBg), transparent 30%) !important;
-    backdrop-filter: blur(30px) saturate(150%) brightness(1.1) !important;
-    border: none !important;
-}
-
-#panels-container.right:hover,
-#panels-container.right:focus-within {
-    transform: translateX(0);
-    opacity: 1;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
-}
-
-#panels-container.right #panels {
-    height: 100%;
-}
-
-#webview-container {
-    margin-right: 0 !important;
-}
-
-.panel-reorder {
-    display: none;
 }
 
 /* ==========================================================================
@@ -89,7 +46,7 @@
     box-shadow: none !important;
 }
 
-/* ツールバーの背景とすりガラス（個別に指定して境界線を抑制） */
+/* ツールバーの背景とすりガラス */
 .toolbar-mainbar, 
 .toolbar-addressbar {
     background-color: color-mix(in srgb, var(--colorBg), transparent 30%) !important;
@@ -110,4 +67,11 @@
 [style*="border"] {
     border: none !important;
     outline: none !important;
+}
+
+/* ==========================================================================
+   Hide Window Control Buttons
+   ========================================================================== */
+.window-buttongroup {
+    display: none !important;
 }
