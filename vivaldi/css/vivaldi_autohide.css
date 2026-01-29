@@ -1,13 +1,12 @@
 /*
- * Vivaldi Custom UI - Remove Tab Bar Bottom Border Only
+ * Vivaldi Custom UI - Remove Tab Bar Bottom Border Only (Aggressive)
  */
 
-/* タブバーの下にある境界線や影を消す */
-.address-top .mainbar {
-    border-top: none !important;
-}
+/* ==========================================================================
+   Tab Bar Bottom Border Removal
+   ========================================================================== */
 
-/* タブバー自体の境界線を消す（念のため） */
+/* タブバーコンテナ自体の下線と影を削除 */
 #tabs-tabbar-container,
 .tabbar-wrapper,
 #browser .tabbar {
@@ -15,14 +14,36 @@
     box-shadow: none !important;
 }
 
-/* アドレスバーとの境界線を消す */
+/* 一部のテーマで描画される疑似要素による線を削除 */
+#tabs-tabbar-container::after,
+.tabbar-wrapper::after,
+#browser .tabbar::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+/* ==========================================================================
+   Address Bar Top Border Removal (Connecting part)
+   ========================================================================== */
+
+/* アドレスバー（メインバー）の上線を削除 */
+.address-top .mainbar,
 .toolbar-mainbar {
     border-top: none !important;
     box-shadow: none !important;
 }
 
-/* 一部のテーマで表示されるラインを消す */
-.tab-position .tabbar-wrapper::after {
-    display: none !important;
+/* アドレスバーの疑似要素による線を削除 */
+.address-top .mainbar::before,
+.toolbar-mainbar::before {
     content: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+/* ヘッダー全体の下線を削除（タブバーとアドレスバーを含むコンテナの場合がある） */
+#header {
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
