@@ -1,80 +1,28 @@
 /*
- * Vivaldi Custom UI - Always Visible Floating Tab Bar
- * Optimized for visibility and glass texture. Borderless version.
+ * Vivaldi Custom UI - Remove Tab Bar Bottom Border Only
  */
 
-/* ==========================================================================
-   Top Tab Bar - Always Visible Floating (Overlay)
-   ========================================================================== */
-#browser.tabs-top .tabbar-wrapper {
-    position: absolute !important;
-    top: 0;
-    left: 40px; /* 左端のメニューボタン分を空ける（必要に応じて数値を微調整してください） */
-    width: calc(100% - 40px) !important;
-    height: auto !important;
-    z-index: 9999999;
-    pointer-events: auto !important;
-    
-    /* 常に表示 */
-    transform: translateY(0) !important;
-    opacity: 1 !important;
+/* タブバーの下にある境界線や影を消す */
+.address-top .mainbar {
+    border-top: none !important;
+}
 
-    /* 質感: 境界線なし・完全透明（ブラーのみ） */
-    background-color: transparent !important;
-    backdrop-filter: blur(30px) saturate(150%) brightness(1.1) !important;
-    border: none !important;
+/* タブバー自体の境界線を消す（念のため） */
+#tabs-tabbar-container,
+.tabbar-wrapper,
+#browser .tabbar {
+    border-bottom: none !important;
     box-shadow: none !important;
 }
 
-/* メインコンテンツをタブバーの分だけ下げずに、全画面で背後に回し込む */
-#browser.tabs-top #main {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    border: none !important;
-    position: relative !important;
-    z-index: 1 !important;
-}
-
-/* ==========================================================================
-   Header & Address Bar Transparency (Borderless)
-   ========================================================================= */
-#header, 
-.topmenu, 
-#main, 
-.mainbar, 
-.toolbar-mainbar, 
-.toolbar-addressbar {
-    background-color: transparent !important;
-    border: none !important;
+/* アドレスバーとの境界線を消す */
+.toolbar-mainbar {
+    border-top: none !important;
     box-shadow: none !important;
 }
 
-/* ツールバーの背景とすりガラス */
-.toolbar-mainbar, 
-.toolbar-addressbar {
-    background-color: color-mix(in srgb, var(--colorBg), transparent 30%) !important;
-    backdrop-filter: blur(30px) saturate(150%) brightness(1.1) !important;
-}
-
-/* UI間の区切り線や入力欄の枠線を消去 */
-.addressfield, .searchfield {
-    background-color: rgba(0, 0, 0, 0.1) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Vivaldi標準のすべての境界線・セパレーターを強制非表示 */
-.separator, 
-.button-toolbar::after, 
-.button-toolbar::before,
-[style*="border"] {
-    border: none !important;
-    outline: none !important;
-}
-
-/* ==========================================================================
-   Hide Window Control Buttons
-   ========================================================================== */
-.window-buttongroup {
+/* 一部のテーマで表示されるラインを消す */
+.tab-position .tabbar-wrapper::after {
     display: none !important;
+    content: none !important;
 }
