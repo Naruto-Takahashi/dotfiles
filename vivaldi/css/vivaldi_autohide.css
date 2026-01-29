@@ -12,7 +12,8 @@
     left: 40px; /* 左端のメニューボタン分を空ける（必要に応じて数値を微調整してください） */
     width: calc(100% - 40px) !important;
     height: auto !important;
-    z-index: 9999;
+    z-index: 9999999;
+    pointer-events: auto !important;
     
     /* 常に表示 */
     transform: translateY(0) !important;
