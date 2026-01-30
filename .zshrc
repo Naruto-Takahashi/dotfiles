@@ -13,6 +13,22 @@ export NVM_DIR="$HOME/.nvm"
 # Rust / Cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+# Go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+
+# ghq + fzf
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+2 | head -n 200")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+
 # =============================================================================
 
 # =============================================================================
@@ -210,6 +226,23 @@ bindkey -M menuselect 'l' vi-forward-char
 if [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Sync Windows config files from WSL dotfiles
+function sync-win() {
+    echo "Syncing WezTerm config..."
+    cp ~/dotfiles/wezterm/*.lua /mnt/c/Users/tnaru/.config/wezterm/
+
+    echo "Syncing AutoHotkey script..."
+    # ターゲットディレクトリはユーザー指定の Tools/Customization
+    mkdir -p /mnt/c/Users/tnaru/Tools/Customization
+    cp ~/dotfiles/ahk/main.ahk /mnt/c/Users/tnaru/Tools/Customization/
+
+    echo "Syncing GlazeWM config..."
+    mkdir -p /mnt/c/Users/tnaru/.glazewm
+    cp ~/dotfiles/glazewm/config.yaml /mnt/c/Users/tnaru/.glazewm/
+
+    echo "All Windows configs synced."
+}
 
 # =============================================================================
 # Local Settings
