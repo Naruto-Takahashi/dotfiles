@@ -241,6 +241,10 @@ function sync-win() {
     mkdir -p /mnt/c/Users/tnaru/.glzr/glazewm
     cp ~/dotfiles/glazewm/config.yaml /mnt/c/Users/tnaru/.glzr/glazewm/
 
+    echo "Syncing Vivaldi CSS..."
+    mkdir -p /mnt/c/Users/tnaru/Tools/Vivaldi
+    cp ~/dotfiles/vivaldi/css/vivaldi_autohide.css /mnt/c/Users/tnaru/Tools/Vivaldi/custom.css
+
     echo "All Windows configs synced."
 }
 
