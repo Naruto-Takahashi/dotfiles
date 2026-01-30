@@ -190,7 +190,7 @@ bindkey -v
 
 # ghq + fzf
 function ghq-fzf() {
-  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+2 | head -n 200")
+  local src=$(ghq list | fzf --bind 'tab:down,btab:up' --preview "ls -laTp $(ghq root)/{} | tail -n+2 | head -n 200")
   if [ -n "$src" ]; then
     BUFFER="cd $(ghq root)/$src"
     zle accept-line
