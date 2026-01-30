@@ -238,8 +238,8 @@ function sync-win() {
     cp ~/dotfiles/ahk/main.ahk /mnt/c/Users/tnaru/Tools/Customization/
 
     echo "Syncing GlazeWM config..."
-    mkdir -p /mnt/c/Users/tnaru/.glazewm
-    cp ~/dotfiles/glazewm/config.yaml /mnt/c/Users/tnaru/.glazewm/
+    mkdir -p /mnt/c/Users/tnaru/.glzr/glazewm
+    cp ~/dotfiles/glazewm/config.yaml /mnt/c/Users/tnaru/.glzr/glazewm/
 
     echo "All Windows configs synced."
 }
