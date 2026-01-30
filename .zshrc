@@ -63,6 +63,17 @@ if command -v zoxide >/dev/null; then
 fi
 
 # =============================================================================
+# Directory Options & Hash
+# =============================================================================
+setopt auto_cd
+
+# Directory Hash
+hash -d d=~/dotfiles
+hash -d p=~/projects
+hash -d zenn=~/projects/zenn-blog
+hash -d rust=~/projects/rust-the-book
+
+# =============================================================================
 # Aliases
 # =============================================================================
 # Utility

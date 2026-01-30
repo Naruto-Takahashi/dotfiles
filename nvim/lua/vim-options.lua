@@ -140,3 +140,36 @@ end
 
 -- キーバインド設定: <leader>ip
 vim.keymap.set("n", "<leader>ip", paste_zenn_image, { desc = "Paste Image (Zenn/Custom)" })
+
+-- ==========================================================================
+--  TOhtml Auto-Save
+-- ==========================================================================
+vim.api.nvim_create_user_command("ToHtmlSave", function()
+  -- 現在のファイルパスを取得
+  local current_file = vim.fn.expand("%:p")
+  local current_dir = vim.fn.expand("%:p:h")
+  local file_name = vim.fn.expand("%:t")
+  
+  if current_file == "" then
+    vim.notify("No file associated with this buffer.", vim.log.levels.ERROR)
+    return
+  end
+
+  -- HTMLファイル名を決定 (拡張子を .html に変更、なければ追加)
+  local html_name = file_name:gsub("%.%w+$", "") .. ".html"
+  if html_name == file_name then html_name = file_name .. ".html" end
+  local output_path = current_dir .. "/" .. html_name
+
+  -- TOhtml実行
+  vim.cmd("TOhtml")
+  
+  -- 生成されたHTMLバッファで保存を実行
+  vim.cmd("w! " .. vim.fn.fnameescape(output_path))
+  
+  -- HTMLバッファを閉じる（今のバッファがHTMLになっているので）
+  vim.cmd("bd") 
+  
+  vim.notify("HTML saved to: " .. output_path, vim.log.levels.INFO)
+end, { desc = "Convert to HTML and save in the same directory" })
+
+vim.keymap.set("n", "<leader>th", ":ToHtmlSave<CR>", { desc = "TOhtml and Save" })
