@@ -88,6 +88,7 @@ window_rules:
 
         window_class: {regex: "Chrome_WidgetWin_1|MozillaDialogClass"}
       - window_process: {equals: "PowerToys.PowerAccent"}
+      - window_process: {equals: "PowerToys.Run"}
         # Ignore rules for various 3rd-party apps.
       - window_process: {equals: "Lively"}
         window_class: {regex: "HwndWrapper*"}
