@@ -195,7 +195,7 @@ function ghq-fzf() {
     BUFFER="cd $(ghq root)/$src"
     zle accept-line
   fi
-  zle -R -c
+  zle reset-prompt
 }
 zle -N ghq-fzf
 bindkey '^g' ghq-fzf
