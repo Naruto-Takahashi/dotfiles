@@ -232,10 +232,9 @@ function sync-win() {
     echo "Syncing WezTerm config..."
     cp ~/dotfiles/wezterm/*.lua /mnt/c/Users/tnaru/.config/wezterm/
 
-    echo "Syncing AutoHotkey script..."
-    # ターゲットディレクトリはユーザー指定の Tools/Customization
+    echo "Syncing AutoHotkey scripts..."
     mkdir -p /mnt/c/Users/tnaru/Tools/Customization
-    cp ~/dotfiles/ahk/main.ahk /mnt/c/Users/tnaru/Tools/Customization/
+    cp -r ~/dotfiles/ahk/* /mnt/c/Users/tnaru/Tools/Customization/
 
     echo "Syncing GlazeWM config..."
     mkdir -p /mnt/c/Users/tnaru/.glzr/glazewm
