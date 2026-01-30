@@ -66,10 +66,15 @@ window_behavior:
       shown_on_top: false
 workspaces:
   - name: "1"
+    bind_to_monitor: 0
   - name: "2"
+    bind_to_monitor: 0
   - name: "3"
+    bind_to_monitor: 0
   - name: "4"
+    bind_to_monitor: 0
   - name: "5"
+    bind_to_monitor: 0
   - name: "6"
     bind_to_monitor: 1
   - name: "7"
@@ -229,13 +234,13 @@ keybindings:
     # Move the focused window's parent workspace to a monitor in a given
 
     # direction.
-    bindings: ["alt+shift+a"]
+    # bindings: ["alt+shift+a"]
   - commands: ["move-workspace --direction right"]
-    bindings: ["alt+shift+f"]
+    # bindings: ["alt+shift+f"]
   - commands: ["move-workspace --direction up"]
-    bindings: ["alt+shift+d"]
+    # bindings: ["alt+shift+d"]
   - commands: ["move-workspace --direction down"]
-    bindings: ["alt+shift+s"]
+    # bindings: ["alt+shift+s"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
     # Move focused window to a workspace defined in `workspaces` config.
 
