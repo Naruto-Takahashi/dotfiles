@@ -17,18 +17,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 
-# ghq + fzf
-function ghq-fzf() {
-  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+2 | head -n 200")
-  if [ -n "$src" ]; then
-    BUFFER="cd $(ghq root)/$src"
-    zle accept-line
-  fi
-  zle -R -c
-}
-zle -N ghq-fzf
-bindkey '^g' ghq-fzf
-
 # =============================================================================
 
 # =============================================================================
@@ -199,6 +187,20 @@ fi
 # =============================================================================
 # Enable Vi mode
 bindkey -v
+
+# ghq + fzf
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+2 | head -n 200")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+bindkey -M viins '^g' ghq-fzf
+bindkey -M vicmd '^g' ghq-fzf
 
 # Fix backspace behavior in Vi mode
 bindkey "^?" backward-delete-char
