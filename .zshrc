@@ -14,17 +14,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # =============================================================================
+
+# =============================================================================
+# =============================================================================
 # History
 # =============================================================================
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
+setopt EXTENDED_HISTORY       # Record timestamp and duration
 setopt SHARE_HISTORY          # Share history between sessions
 setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate entries
+setopt HIST_SAVE_NO_DUPS      # Don't save duplicates
 setopt HIST_IGNORE_SPACE      # Don't save commands starting with space
 setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks
+setopt HIST_FIND_NO_DUPS      # Skip duplicates when searching
+setopt HIST_NO_STORE          # Don't save 'history' command
 
-# =============================================================================
 # Completion
 # =============================================================================
 autoload -Uz compinit && compinit
