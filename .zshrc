@@ -28,6 +28,7 @@ setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks
 # Completion
 # =============================================================================
 autoload -Uz compinit && compinit
+zmodload zsh/complist
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case insensitive
 zstyle ':completion:*' menu select                  # Select with cursor
 
@@ -36,11 +37,6 @@ zstyle ':completion:*' menu select                  # Select with cursor
 # =============================================================================
 # Starship
 eval "$(starship init zsh)"
-
-# zsh-syntax-highlighting
-if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
 
 # zsh-autosuggestions
 if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -174,6 +170,39 @@ if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
     }
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd wezterm_osc7
+fi
+
+# =============================================================================
+# Vi Mode & Keybindings
+# =============================================================================
+# Enable Vi mode
+bindkey -v
+
+# Fix backspace behavior in Vi mode
+bindkey "^?" backward-delete-char
+
+# Edit command line in Vim (Esc -> v)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+# Vim-like navigation in completion menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
+# =============================================================================
+
+# =============================================================================
+
+# =============================================================================
+# Syntax Highlighting (Must be last)
+# =============================================================================
+# zsh-syntax-highlighting
+# Guard against multiple sourcing to prevent infinite recursion loop in widgets
+if [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # =============================================================================
