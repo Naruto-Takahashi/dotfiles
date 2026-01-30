@@ -27,7 +27,6 @@
 | `alt+shift+e` | `wm-exit` | GlazeWMを終了 |
 | `alt+shift+r` | `wm-reload-config` | 設定をリロード |
 | `alt+shift+w` | `wm-redraw` | 全ウィンドウを再描画 |
-| `alt+enter` | `shell-exec wezterm-gui` | WezTermを起動 |
 
 ## ワークスペース管理 (Workspace Management)
 
