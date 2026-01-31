@@ -152,6 +152,9 @@ alias zn='npx zenn new:article'
 alias zqr='~/dotfiles/bash/zqr'
 alias zstop='pkill ngrok && echo "ngrok stopped."'
 
+# Backup GEMINI.md
+alias bgemini='cp ~/.gemini/GEMINI.md ~/dotfiles/gemini/GEMINI.md && (cd ~/dotfiles && git add gemini/GEMINI.md && git commit -m "chore: update GEMINI.md backup" && git push) && echo "GEMINI.md backed up."'
+
 # =============================================================================
 # Functions
 # =============================================================================
