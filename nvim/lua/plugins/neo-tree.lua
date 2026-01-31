@@ -8,14 +8,21 @@ return {
   },
   opts = {
     window = {
-      position = "current",
+      position = "left",
+      width = 30,
       mappings = {
         ["<space>"] = "none",
+        ["l"] = "open",
+        ["h"] = "close_node",
       },
     },
     filesystem = {
-      hijack_netrw_behavior = "open_current",
+      hijack_netrw_behavior = "open_default", -- netrwを無効化し、サイドバーで開く
       use_libuv_file_watcher = true,
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = true, -- 別のファイルに移ってもディレクトリを閉じない
+      },
     },
   },
   config = function(_, opts)
