@@ -3,8 +3,7 @@ general:
   # another application). Here we are running a batch script to start Zebar.
   startup_commands: []
   # Whether to automatically focus windows underneath the cursor.
-
-  focus_follows_cursor: false
+  focus_follows_cursor: true
   # Whether to switch back and forth between the previously focused
 
   # workspace when focusing the current workspace.
@@ -232,15 +231,14 @@ keybindings:
     bindings: ["alt+9"]
   - commands: ["move-workspace --direction left"]
     # Move the focused window's parent workspace to a monitor in a given
-
     # direction.
-    # bindings: ["alt+shift+a"]
+    bindings: ["alt+shift+a"]
   - commands: ["move-workspace --direction right"]
-    # bindings: ["alt+shift+f"]
+    bindings: ["alt+shift+f"]
   - commands: ["move-workspace --direction up"]
-    # bindings: ["alt+shift+d"]
+    bindings: ["alt+shift+d"]
   - commands: ["move-workspace --direction down"]
-    # bindings: ["alt+shift+s"]
+    bindings: ["alt+shift+s"]
   - commands: ["move --workspace 1", "focus --workspace 1"]
     # Move focused window to a workspace defined in `workspaces` config.
 
