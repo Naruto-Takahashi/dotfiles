@@ -10,6 +10,8 @@ vim.cmd("set number")
 vim.cmd("set relativenumber") -- 動画では relative number を使うことが多いので合わせますが、お好みで変えてください
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set mouse=a")
+vim.cmd("set cursorline") -- カーソル行をハイライト
+vim.cmd("set cursorcolumn") -- カーソル列をハイライト
 vim.g.mapleader = " " -- スペースキーをリーダーキーにする（Typecraft推奨）
 
 -- Transparency settings (背景透過設定)
@@ -24,7 +26,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     hl(0, "SignColumn", no_bg)
     hl(0, "LineNr", { bg = "none", fg = "#7aa2f7" })
     hl(0, "CursorLineNr", { bg = "none", bold = true })
-    hl(0, "CursorLine", { bg = "none", underline = true })
+    -- hl(0, "CursorLine", { bg = "none", underline = true }) -- カーソル行の背景を表示するためにコメントアウト
   end,
 })
 
