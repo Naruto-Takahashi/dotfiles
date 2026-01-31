@@ -5,13 +5,27 @@ return {
       dependencies = { 
           'nvim-lua/plenary.nvim',
           'nvim-telescope/telescope-ghq.nvim',
+          { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       },
       config = function()
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
         
+        -- 拡張機能の設定
+        telescope.setup({
+          extensions = {
+            fzf = {
+              fuzzy = true,                    -- false will only do exact matching
+              override_generic_sorter = true,  -- override the generic sorter
+              override_file_sorter = true,     -- override the file sorter
+              case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+            }
+          }
+        })
+
         -- 拡張機能の読み込み
         telescope.load_extension('ghq')
+        telescope.load_extension('fzf')
 
         -- キーマッピングの設定
         -- <space>ff : ファイル名を検索
@@ -28,6 +42,15 @@ return {
 
         -- <space>fq : ghq管理のリポジトリを検索
         vim.keymap.set('n', '<leader>fq', telescope.extensions.ghq.list, { desc = 'Telescope ghq list' })
+
+        -- <space>fr : 最近開いたファイルを検索
+        vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Telescope recent files' })
+
+        -- <space>fw : カーソル下の単語を検索
+        vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Telescope word under cursor' })
+
+        -- <space>f. : 前回の検索を再開
+        vim.keymap.set('n', '<leader>f.', builtin.resume, { desc = 'Telescope resume' })
       end
     }
 }
