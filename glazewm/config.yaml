@@ -87,6 +87,8 @@ window_rules:
     match:
       # Ignores any Zebar windows.
       - window_process: {equals: "zebar"}
+      # Ignores LINE messenger.
+      - window_process: {equals: "LINE"}
       - window_title: {regex: "[Pp]icture.in.[Pp]icture"}
         # Ignores picture-in-picture windows for browsers.
 
