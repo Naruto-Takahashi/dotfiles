@@ -1,20 +1,16 @@
 /*
- * Vivaldi Custom UI - Remove Tab Bar Bottom Border Only (Aggressive)
+ * Vivaldi Custom UI - Transparent Address Bar & No Borders
  */
 
 /* ==========================================================================
-   Tab Bar Bottom Border Removal
+   Tab Bar Bottom Border Removal (Existing)
    ========================================================================== */
-
-/* タブバーコンテナ自体の下線と影を削除 */
 #tabs-tabbar-container,
 .tabbar-wrapper,
 #browser .tabbar {
     border-bottom: none !important;
     box-shadow: none !important;
 }
-
-/* 一部のテーマで描画される疑似要素による線を削除 */
 #tabs-tabbar-container::after,
 .tabbar-wrapper::after,
 #browser .tabbar::after {
@@ -24,26 +20,60 @@
 }
 
 /* ==========================================================================
-   Address Bar Top Border Removal (Connecting part)
+   Address Bar Transparency & Styling (New)
    ========================================================================== */
 
-/* アドレスバー（メインバー）の上線を削除 */
-.address-top .mainbar,
-.toolbar-mainbar {
-    border-top: none !important;
+/* アドレスバー（ツールバー）の背景を透明化 */
+.mainbar, 
+.toolbar-mainbar,
+.toolbar-addressbar {
+    /* 完全に透明にする場合 */
+    background-color: transparent !important;
+    
+    /* 文字が見づらい場合は、以下のコメントアウトを外して「半透明すりガラス」にしてください */
+    /* background-color: rgba(var(--colorBgInt), 0.6) !important; */
+    /* backdrop-filter: blur(10px) !important; */
+    
+    border: none !important;
     box-shadow: none !important;
 }
 
-/* アドレスバーの疑似要素による線を削除 */
+/* ヘッダー全体も透明化 */
+#header {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* アドレス入力欄・検索欄を周囲になじませる（半透明化） */
+.UrlBar-AddressField,
+.UrlBar-SearchField,
+.addressfield, 
+.searchfield {
+    background-color: rgba(128, 128, 128, 0.15) !important; /* 薄いグレー */
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--colorFg) !important; /* 文字色はテーマに従う */
+}
+
+/* 入力欄のフォーカス時も見やすく調整 */
+.UrlBar-AddressField:focus-within,
+.UrlBar-SearchField:focus-within,
+.addressfield:focus-within, 
+.searchfield:focus-within {
+    background-color: var(--colorBg) !important; /* フォーカス時は不透明にして見やすく */
+    box-shadow: 0 0 0 1px var(--colorHighlightBg) !important;
+}
+
+/* ボタン類の背景も馴染ませる */
+.button-toolbar {
+    background-color: transparent !important;
+}
+
+/* 
+ * 以前の境界線削除設定（念のため残存）
+ */
 .address-top .mainbar::before,
 .toolbar-mainbar::before {
-    content: none !important;
     display: none !important;
-    border: none !important;
-}
-
-/* ヘッダー全体の下線を削除（タブバーとアドレスバーを含むコンテナの場合がある） */
-#header {
-    border-bottom: none !important;
-    box-shadow: none !important;
 }
