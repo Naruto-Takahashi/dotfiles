@@ -245,6 +245,11 @@ function sync-win() {
     mkdir -p /mnt/c/Users/tnaru/.glzr/glazewm
     cp ~/dotfiles/glazewm/config.yaml /mnt/c/Users/tnaru/.glzr/glazewm/
 
+    echo "Syncing Zebar config..."
+    mkdir -p /mnt/c/Users/tnaru/.glzr/zebar/profiles
+    rm -rf /mnt/c/Users/tnaru/.glzr/zebar/profiles/glazewm
+    cp -r ~/dotfiles/zebar/glazewm /mnt/c/Users/tnaru/.glzr/zebar/profiles/
+
     echo "Syncing Vivaldi CSS..."
     mkdir -p /mnt/c/Users/tnaru/Tools/Vivaldi
     cp ~/dotfiles/vivaldi/css/vivaldi_minimal_transparent.css /mnt/c/Users/tnaru/Tools/Vivaldi/custom.css
