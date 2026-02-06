@@ -80,17 +80,19 @@ body,
 
 .binding-mode,
 .tiling-direction {
-  background: rgb(255 255 255 / 15%);
-  color: rgb(255 255 255 / 90%);
-  border-radius: 2px;
-  line-height: 1;
+  background: rgb(255 255 255 / 5%);
+  margin-right: 4px;
   padding: 4px 8px;
-  border: 0;
+  color: rgb(255 255 255 / 90%);
+  border: none;
+  border-radius: 2px;
   cursor: pointer;
+  line-height: 1;
 }
 
-.binding-mode {
-  margin-right: 4px;
+.binding-mode:hover,
+.tiling-direction:hover {
+  background: rgb(255 255 255 / 50%);
 }
 
 .cpu .high-usage {
