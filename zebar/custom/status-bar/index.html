@@ -159,15 +159,31 @@
 
                             {workspace.displayName ?? workspace.name}
 
-                          </button>
+                                                    </button>
 
-                        ))}
+                                                  ))}
 
-                      </div>
+                                                </div>
 
-                    )}
+                                              )}
 
-                  </div>
+                                              {output.glazewm && (
+
+                                                <button
+
+                                                  className="tiling-direction"
+
+                                                  onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
+
+                                                >
+
+                                                  {output.glazewm.tilingDirection === 'horizontal' ? 'H' : 'V'}
+
+                                                </button>
+
+                                              )}
+
+                                            </div>
 
       
 
