@@ -1,5 +1,6 @@
 :root {
-  --bg: #1e1e2e;
+  --bg: transparent;
+  --panel-bg: #1e1e2e;
   --fg: #cdd6f4;
   --accent: #89b4fa;
   --urgent: #f38ba8;
@@ -37,15 +38,19 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  background-color: var(--panel-bg);
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .workspace {
   background: transparent;
   border: none;
   color: var(--gray);
-  padding: 5px 10px;
+  padding: 4px 8px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.2s;
 }
 
@@ -61,7 +66,7 @@ body {
 
 .workspace.focused {
   background: var(--accent);
-  color: var(--bg);
+  color: var(--panel-bg);
   font-weight: bold;
 }
 
