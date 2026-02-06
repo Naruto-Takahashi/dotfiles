@@ -38,11 +38,13 @@
     box-shadow: none !important;
 }
 
-/* ヘッダー全体も透明化 */
+/* ヘッダー全体も透明化・高さ自動調整 */
 #header {
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    height: auto !important;
+    min-height: 0 !important;
 }
 
 /* アドレス入力欄・検索欄を周囲になじませる（半透明化） */
