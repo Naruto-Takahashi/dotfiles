@@ -167,21 +167,29 @@
 
                                               )}
 
-                                                                                      {output.glazewm && (
+                                                                                                          {output.glazewm && (
 
-                                                                                        <button
+                                                                                                            <button
 
-                                                                                          className="tiling-direction"
+                                                                                                              className="tiling-direction"
 
-                                                                                          onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
+                                                                                                              onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
 
-                                                                                        >
+                                                                                                            >
 
-                                                                                          {output.glazewm.tilingDirection === 'horizontal' ? '↔️' : '↕️'}
+                                                                                                              {output.glazewm.tilingDirection === 'horizontal' ? (
 
-                                                                                        </button>
+                                                                                                                <i className="nf nf-md-swap_horizontal" style={{ marginRight: 0 }}></i>
 
-                                                                                      )}
+                                                                                                              ) : (
+
+                                                                                                                <i className="nf nf-md-swap_vertical" style={{ marginRight: 0 }}></i>
+
+                                                                                                              )}
+
+                                                                                                            </button>
+
+                                                                                                          )}
 
                                             </div>
 
