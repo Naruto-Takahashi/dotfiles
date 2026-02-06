@@ -3,7 +3,7 @@
 body {
   color: rgb(255 255 255 / 90%);
   font-family: ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 11px;
   overflow: hidden;
 }
 
@@ -22,7 +22,7 @@ body,
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   height: 100%;
-  padding: 0 1.5vw;
+  padding: 0 1vw;
 }
 
 .left,
@@ -47,7 +47,7 @@ body,
 .memory,
 .cpu,
 .battery {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .right > :last-child {
@@ -62,8 +62,9 @@ body,
 .workspace {
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
-  padding: 4px 0;
-  width: 28px;
+  padding: 0;
+  width: 22px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,8 +87,9 @@ body,
 .tiling-direction {
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
-  padding: 4px 0;
-  width: 28px;
+  padding: 0;
+  width: 22px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
