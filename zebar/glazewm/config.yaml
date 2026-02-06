@@ -1,0 +1,20 @@
+# Window configuration.
+window:
+  dock: true
+  position: top
+  height: 40
+  monitor: 0
+  resizable: false
+  transparency: true # Windows 11 only
+
+# Providers configuration.
+providers:
+  - type: glazewm
+  - type: date
+    formatting: "EEE d MMM h:mm a"
+  - type: cpu
+    refresh_interval: 2000
+  - type: memory
+    refresh_interval: 2000
+  - type: battery
+    refresh_interval: 5000
