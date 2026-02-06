@@ -62,7 +62,11 @@ body,
 .workspace {
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
-  padding: 4px 8px;
+  padding: 4px 0;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: rgb(255 255 255 / 90%);
   border: none;
   border-radius: 2px;
@@ -82,7 +86,11 @@ body,
 .tiling-direction {
   background: rgb(255 255 255 / 5%);
   margin-right: 4px;
-  padding: 4px 8px;
+  padding: 4px 0;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: rgb(255 255 255 / 90%);
   border: none;
   border-radius: 2px;
