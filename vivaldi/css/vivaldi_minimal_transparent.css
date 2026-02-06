@@ -77,3 +77,19 @@
 .toolbar-mainbar::before {
     display: none !important;
 }
+
+/* ==========================================================================
+   Hide Title Bar & Window Controls
+   ========================================================================== */
+/* タイトルバー全体を非表示 */
+#titlebar {
+    display: none !important;
+}
+
+/* ウィンドウコントロール（最小化・最大化・閉じるボタン）を非表示 */
+.window-buttongroup {
+    display: none !important;
+}
+
+/* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
+   必要であればショートカットキーでメニューを呼び出してください */
