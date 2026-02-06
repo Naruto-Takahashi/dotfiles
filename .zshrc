@@ -247,8 +247,7 @@ function sync-win() {
 
     echo "Syncing Zebar config..."
     mkdir -p /mnt/c/Users/tnaru/.glzr/zebar/profiles
-    rm -rf /mnt/c/Users/tnaru/.glzr/zebar/profiles/glazewm
-    cp -r ~/dotfiles/zebar/glazewm /mnt/c/Users/tnaru/.glzr/zebar/profiles/
+    cp -r ~/dotfiles/zebar/* /mnt/c/Users/tnaru/.glzr/zebar/profiles/
 
     echo "Syncing Zebar startup script..."
     cp ~/dotfiles/zebar/start_zebar.bat "/mnt/c/Users/tnaru/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/"
