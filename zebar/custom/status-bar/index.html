@@ -167,29 +167,21 @@
 
                                               )}
 
-                                                                  {output.glazewm && (
+                                                                                      {output.glazewm && (
 
-                                                                    <button
+                                                                                        <button
 
-                                                                      className="tiling-direction"
+                                                                                          className="tiling-direction"
 
-                                                                      onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
+                                                                                          onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
 
-                                                                    >
+                                                                                        >
 
-                                                                      {output.glazewm.tilingDirection === 'horizontal' ? (
+                                                                                          {output.glazewm.tilingDirection === 'horizontal' ? '↔️' : '↕️'}
 
-                                                                        <i className="nf nf-md-arrow_right_bold" style={{ marginRight: 0 }}></i>
+                                                                                        </button>
 
-                                                                      ) : (
-
-                                                                        <i className="nf nf-md-arrow_down_bold" style={{ marginRight: 0 }}></i>
-
-                                                                      )}
-
-                                                                    </button>
-
-                                                                  )}
+                                                                                      )}
 
                                             </div>
 
