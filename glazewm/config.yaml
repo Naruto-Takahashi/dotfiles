@@ -28,6 +28,9 @@ gaps:
     left: "2px"
 window_effects:
   # Visual effects to apply to the focused window.
+  corner_style:
+    enabled: true
+    style: "square"
   focused_window:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
