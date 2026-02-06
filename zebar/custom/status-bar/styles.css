@@ -47,7 +47,7 @@ body,
 .memory,
 .cpu,
 .battery {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .right > :last-child {
