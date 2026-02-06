@@ -77,25 +77,3 @@
 .toolbar-mainbar::before {
     display: none !important;
 }
-
-/* ==========================================================================
-   Compact Tab Bar (Height Reduction)
-   ========================================================================== */
-#tabs-container {
-    height: 24px !important;
-}
-.tab-position .tab {
-    height: 24px !important;
-}
-.button-toolbar.newtab {
-    height: 24px !important;
-    top: 0 !important;
-}
-.tab-content {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-}

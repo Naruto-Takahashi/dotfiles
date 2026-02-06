@@ -247,7 +247,7 @@ function sync-win() {
 
     echo "Syncing Vivaldi CSS..."
     mkdir -p /mnt/c/Users/tnaru/Tools/Vivaldi
-    cp ~/dotfiles/vivaldi/css/vivaldi_minimal_transparent.css /mnt/c/Users/tnaru/Tools/Vivaldi/custom.css
+    cp ~/dotfiles/vivaldi/css/vivaldi_autohide.css /mnt/c/Users/tnaru/Tools/Vivaldi/custom.css
 
     echo "All Windows configs synced."
 }
