@@ -50,6 +50,10 @@ body,
   margin-right: 20px;
 }
 
+.right > :last-child {
+  margin-right: 0;
+}
+
 .workspaces {
   display: flex;
   align-items: center;
