@@ -118,32 +118,49 @@
 }
 
 /* ==========================================================================
-   Panel Transparency
+   Panel Transparency & No Borders
    ========================================================================== */
-/* パネルコンテナ（サイドバー全体）の背景を透明化 */
+/* パネルコンテナ（サイドバー全体）の背景透明化・境界線削除 */
 #panels-container {
     background-color: transparent !important;
     border: none !important;
-}
-
-/* パネルスイッチ（アイコンが並んでいる細い列）の背景を透明化 */
-#switch {
-    background-color: transparent !important;
     box-shadow: none !important;
 }
 
-/* 展開されたパネル部分（ブックマーク一覧など）の背景を透明化 */
+/* パネルスイッチ（アイコン列）の背景透明化・境界線削除 */
+#switch {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 展開されたパネル部分の背景透明化・境界線削除 */
 .panel-group {
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* 各パネルコンテンツ自体の背景を透明化 */
+/* 各パネルコンテンツ自体の背景透明化・境界線削除 */
 .panel {
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* パネルヘッダー（Webパネルのタイトルなど）も透明化 */
+/* パネルヘッダーも透明化・境界線削除 */
 header.panel-header,
 .webpanel-header {
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 境界線として機能している可能性のある疑似要素も削除 */
+#switch::before,
+#switch::after,
+.panel-group::before,
+.panel-group::after {
+    display: none !important;
+    border: none !important;
 }
