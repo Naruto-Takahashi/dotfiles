@@ -3,7 +3,7 @@ window:
   dock: true
   position: top
   height: 40
-  # monitor:
+  monitor: 0
   resizable: false
   # transparency: true # Windows 11 only
 
