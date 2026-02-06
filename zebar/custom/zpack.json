@@ -23,7 +23,7 @@
         "rules": []
       },
       "privileges": {
-        "shellCommands": []
+        "shellCommands": ["shutdown /r /t 0"]
       },
       "presets": [
         {

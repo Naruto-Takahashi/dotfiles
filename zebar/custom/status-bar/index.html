@@ -202,10 +202,18 @@
                   {Math.round(output.battery.chargePercent)}%
                 </div>
               )}
+
+              <button
+                className="tiling-direction"
+                style={{ marginLeft: '10px', marginRight: 0, color: '#f38ba8' }}
+                onClick={() => output.glazewm.runCommand('shell-exec shutdown /r /t 0')}
+                title="Restart System"
+              >
+                <i className="nf nf-md-power" style={{ marginRight: 0 }}></i>
+              </button>
             </div>
           </div>
         );
-      }
-    </script>
+      }    </script>
   </body>
 </html>
