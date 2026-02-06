@@ -95,3 +95,24 @@
 
 /* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
    必要であればショートカットキーでメニューを呼び出してください */
+
+/* ==========================================================================
+   Compact Tab Bar (Tab Height Reduction)
+   ========================================================================== */
+/* 個々のタブの高さを詰める（垂直・水平問わず有効） */
+.tab-position .tab {
+    height: 28px !important; /* 少し余裕を持たせて28px（標準よりコンパクト） */
+}
+.button-toolbar.newtab {
+    height: 28px !important;
+    top: 0 !important;
+}
+/* タブ内の余白・配置調整 */
+.tab-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
