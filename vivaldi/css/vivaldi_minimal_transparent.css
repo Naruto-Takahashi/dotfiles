@@ -116,3 +116,34 @@
     display: flex !important;
     align-items: center !important;
 }
+
+/* ==========================================================================
+   Panel Transparency
+   ========================================================================== */
+/* パネルコンテナ（サイドバー全体）の背景を透明化 */
+#panels-container {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* パネルスイッチ（アイコンが並んでいる細い列）の背景を透明化 */
+#switch {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 展開されたパネル部分（ブックマーク一覧など）の背景を透明化 */
+.panel-group {
+    background-color: transparent !important;
+}
+
+/* 各パネルコンテンツ自体の背景を透明化 */
+.panel {
+    background-color: transparent !important;
+}
+
+/* パネルヘッダー（Webパネルのタイトルなど）も透明化 */
+header.panel-header,
+.webpanel-header {
+    background-color: transparent !important;
+}
