@@ -180,6 +180,41 @@
     background-color: #965d5d !important;
 }
 
+/* ==========================================================================
+   Navigation Buttons (Back/Forward) - Relocated to Title Bar
+   ========================================================================== */
+/* ツールバー内の戻る・進むボタンをタイトルバー領域（左上）に移動 */
+.toolbar-mainbar .button-toolbar.back,
+.toolbar-mainbar .button-toolbar.forward {
+    position: fixed !important;
+    top: 0 !important;
+    height: 24px !important;
+    width: 34px !important; /* クリックしやすい幅 */
+    z-index: 10000 !important; /* 最前面 */
+    background-color: transparent !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: no-drag !important; /* ドラッグ無効化してクリック可能に */
+}
+
+/* 戻るボタン配置 (左端) */
+.toolbar-mainbar .button-toolbar.back {
+    left: 0 !important;
+}
+
+/* 進むボタン配置 (戻るボタンの隣) */
+.toolbar-mainbar .button-toolbar.forward {
+    left: 34px !important;
+}
+
+/* アイコンサイズ調整（タイトルバーに合わせて少し小さく） */
+.toolbar-mainbar .button-toolbar.back svg,
+.toolbar-mainbar .button-toolbar.forward svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
 /* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
    必要であればショートカットキーでメニューを呼び出してください */
 
