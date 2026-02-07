@@ -1,14 +1,3 @@
-gui:
-  theme:
-    activeBorderColor:
-      - '#a6adc8'
-    inactiveBorderColor:
-      - '#585b70'
-    selectedLineBgColor:
-      - '#313244'
-    searchingActiveBorderColor:
-      - '#f9e2af'
-
 customCommands:
   - key: '<c-g>'
     description: 'Generate commit message via Gemini and Edit'
