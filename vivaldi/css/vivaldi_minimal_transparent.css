@@ -134,7 +134,7 @@
     width: 12px !important;
     height: 12px !important;
     border-radius: 50% !important;
-    margin: 0 6.5px !important; /* 間隔変更: 隙間13px (左右6.5px) */
+    margin: 0 12.5px !important; /* 間隔変更: 隙間25px (左右12.5px) */
     padding: 0 !important;
     border: none !important;
     box-shadow: none !important;
@@ -185,7 +185,7 @@
    ========================================================================== */
 /* 
  * ツールバー内の戻る・進むボタンをタイトルバー領域（左上）に移動 
- * 注意: Vivaldiの設定で「戻る・進むボタン」を表示にしている必要があります
+ * 強力に表示を強制
  */
 
 /* 戻るボタンのコンテナ (.button-toolbar.back) */
@@ -195,12 +195,15 @@
     left: 0 !important;
     height: 24px !important;
     width: 34px !important;
-    z-index: 10001 !important; /* タイトルバー(9999)より上 */
+    z-index: 2147483647 !important; /* 最大値で最前面に */
+    opacity: 1 !important;
+    visibility: visible !important;
     background-color: transparent !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
     -webkit-app-region: no-drag !important;
+    pointer-events: auto !important;
 }
 
 /* 進むボタンのコンテナ (.button-toolbar.forward) */
@@ -210,12 +213,15 @@
     left: 34px !important;
     height: 24px !important;
     width: 34px !important;
-    z-index: 10001 !important;
+    z-index: 2147483647 !important; /* 最大値で最前面に */
+    opacity: 1 !important;
+    visibility: visible !important;
     background-color: transparent !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
     -webkit-app-region: no-drag !important;
+    pointer-events: auto !important;
 }
 
 /* コンテナ内のボタン本体が表示されるように調整 */
@@ -229,15 +235,26 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* アイコンサイズ調整 */
+/* アイコンサイズ調整・色強制 */
 .button-toolbar.back svg,
 .button-toolbar.forward svg {
     width: 16px !important;
     height: 16px !important;
     display: block !important;
     fill: var(--colorFg) !important; /* テーマの色を使用 */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* パス要素も確実に表示 */
+.button-toolbar.back svg path,
+.button-toolbar.forward svg path {
+    fill: inherit !important;
+    opacity: 1 !important;
 }
 
 /* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
