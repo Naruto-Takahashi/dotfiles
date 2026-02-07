@@ -88,9 +88,52 @@
     display: none !important;
 }
 
-/* ウィンドウコントロール（最小化・最大化・閉じるボタン）を非表示 */
-.window-buttongroup {
+/* macOS風ウィンドウコントロール（最小化・最大化・閉じるボタン） */
+#browser.win .window-buttongroup {
+    display: flex !important; /* 表示を強制 */
+    align-items: center !important;
+    margin-right: 12px !important;
+}
+
+#browser.win .window-buttongroup button {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    margin: 0 4px !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    fill: transparent !important;
+}
+
+#browser.win .window-buttongroup button svg {
     display: none !important;
+}
+
+/* 閉じる (赤) */
+#browser.win .window-buttongroup button.window-close {
+    background-color: #ff5f56 !important;
+}
+#browser.win .window-buttongroup button.window-close:hover {
+    background-color: #ff3b30 !important;
+}
+
+/* 最小化 (黄) */
+#browser.win .window-buttongroup button.window-minimize {
+    background-color: #ffbd2e !important;
+}
+#browser.win .window-buttongroup button.window-minimize:hover {
+    background-color: #e6a817 !important;
+}
+
+/* 最大化/元に戻す (緑) */
+#browser.win .window-buttongroup button.window-maximize,
+#browser.win .window-buttongroup button.window-restore {
+    background-color: #27c93f !important;
+}
+#browser.win .window-buttongroup button.window-maximize:hover,
+#browser.win .window-buttongroup button.window-restore:hover {
+    background-color: #1e9e30 !important;
 }
 
 /* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
