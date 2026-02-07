@@ -107,6 +107,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important; /* 右寄せにする場合 */
+    margin-left: auto !important; /* 強制的に右寄せ（これが重要） */
     margin-right: 12px !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
