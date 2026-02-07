@@ -83,28 +83,34 @@
 /* ==========================================================================
    Hide Title Bar & Window Controls
    ========================================================================== */
-/* タイトルバー全体を非表示 -> 表示（ボタンを表示するため） */
+/* タイトルバー全体調整 */
 #titlebar {
     display: flex !important;
     background-color: transparent !important;
-    min-height: 0 !important;
-    height: auto !important;
+    height: 32px !important; /* 高さを確保してボタン位置を下げる */
+    align-items: center !important; /* 垂直中央揃え */
     padding: 0 !important;
-}
-
-/* タイトルバー内のVivaldiアイコンなどは隠す（必要なら） */
-#titlebar .vivaldi {
-    display: none !important;
-}
-#titlebar .title {
-    display: none !important;
+    -webkit-app-region: drag !important; /* ウィンドウドラッグ有効化 */
 }
 
 /* macOS風ウィンドウコントロール（最小化・最大化・閉じるボタン） */
 #browser.win .window-buttongroup {
-    display: flex !important; /* 表示を強制 */
+    display: flex !important;
     align-items: center !important;
     margin-right: 12px !important;
+    -webkit-app-region: no-drag !important; /* ボタン部分はドラッグ無効（クリック有効） */
+}
+
+/* タイトルバー内のボタン群以外の要素（テキスト、アイコン等）をすべて非表示 */
+#titlebar > *:not(.window-buttongroup) {
+    display: none !important;
+}
+
+/* 念のため個別のクラスも指定して非表示を徹底 */
+#titlebar .vivaldi,
+#titlebar .title,
+.vivaldi-button-wrapper {
+    display: none !important;
 }
 
 #browser.win .window-buttongroup button {
