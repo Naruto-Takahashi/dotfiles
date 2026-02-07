@@ -83,8 +83,20 @@
 /* ==========================================================================
    Hide Title Bar & Window Controls
    ========================================================================== */
-/* タイトルバー全体を非表示 */
+/* タイトルバー全体を非表示 -> 表示（ボタンを表示するため） */
 #titlebar {
+    display: flex !important;
+    background-color: transparent !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+}
+
+/* タイトルバー内のVivaldiアイコンなどは隠す（必要なら） */
+#titlebar .vivaldi {
+    display: none !important;
+}
+#titlebar .title {
     display: none !important;
 }
 
