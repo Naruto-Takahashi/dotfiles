@@ -115,7 +115,7 @@
     
     /* ボタン位置を少し下げる微調整 */
     position: relative !important;
-    top: 3px !important;
+    top: 2px !important;
 }
 
 /* タイトルバー内のボタン群以外の要素（テキスト、アイコン等）をすべて非表示 */
@@ -134,7 +134,7 @@
     width: 14px !important;
     height: 14px !important;
     border-radius: 50% !important;
-    margin: 0 4px !important;
+    margin: 0 6px !important;
     padding: 0 !important;
     border: none !important;
     box-shadow: none !important;
@@ -148,35 +148,36 @@
 /* 
  * ボタンの並び順と色を変更
  * ユーザー要望: 緑(最小化) -> 黄(最大化) -> 赤(閉じる)
+ * パステルカラー調整
  */
 
 /* 最小化 (緑) - Order 1 */
 #browser.win .window-buttongroup button.window-minimize {
     order: 1 !important;
-    background-color: #27c93f !important; /* Green */
+    background-color: #85e89d !important; /* Pastel Green */
 }
 #browser.win .window-buttongroup button.window-minimize:hover {
-    background-color: #1e9e30 !important;
+    background-color: #6fcf87 !important;
 }
 
 /* 最大化/元に戻す (黄) - Order 2 */
 #browser.win .window-buttongroup button.window-maximize,
 #browser.win .window-buttongroup button.window-restore {
     order: 2 !important;
-    background-color: #ffbd2e !important; /* Yellow */
+    background-color: #ffe066 !important; /* Pastel Yellow */
 }
 #browser.win .window-buttongroup button.window-maximize:hover,
 #browser.win .window-buttongroup button.window-restore:hover {
-    background-color: #e6a817 !important;
+    background-color: #ecd055 !important;
 }
 
 /* 閉じる (赤) - Order 3 */
 #browser.win .window-buttongroup button.window-close {
     order: 3 !important;
-    background-color: #ff5f56 !important; /* Red */
+    background-color: #ff9aa2 !important; /* Pastel Red */
 }
 #browser.win .window-buttongroup button.window-close:hover {
-    background-color: #ff3b30 !important;
+    background-color: #ed8991 !important;
 }
 
 /* Vivaldiボタン（メニュー）が表示されなくなる場合があるため、
