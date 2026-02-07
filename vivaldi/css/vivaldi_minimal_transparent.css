@@ -115,7 +115,7 @@
     
     /* ボタン位置を少し下げる微調整 */
     position: relative !important;
-    top: 2px !important;
+    top: 1px !important;
 }
 
 /* タイトルバー内のボタン群以外の要素（テキスト、アイコン等）をすべて非表示 */
@@ -134,7 +134,7 @@
     width: 12px !important;
     height: 12px !important;
     border-radius: 50% !important;
-    margin: 0 6px !important;
+    margin: 0 8px !important;
     padding: 0 !important;
     border: none !important;
     box-shadow: none !important;
