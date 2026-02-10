@@ -71,5 +71,5 @@ format = '[[   $time ](fg:#a0a9cb)]($style)'
 
 [character]
 success_symbol = "[❯](bold #ffc20d)"
-error_symbol = "[❯](bold red)"
+error_symbol = "[❯](bold #ffc20d)"
 vicmd_symbol = "[❯](bold #8e8e8e)"
