@@ -58,8 +58,8 @@ local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local background = "#2d3436"
-  local foreground = "#b2bec3"
+  local background = "#666666"
+  local foreground = "#f0f0f0"
   local edge_background = "none"
   local edge_foreground = background
 
