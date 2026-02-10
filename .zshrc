@@ -46,9 +46,9 @@ zstyle ':completion:*' menu select                  # Select with cursor
 # Colors
 # =============================================================================
 # LS_COLORS for eza/ls
-# di=directory (Bold Slate Blue), ex=executable (Bold Green), ln=symlink (Bold Mauve)
+# di=directory (Bold Slate Blue), ex=executable (Bold Soft Cyan), ln=symlink (Bold Mauve)
 # Archives (*.zip, *.tar, etc.) = Bold Salmon Red
-export LS_COLORS="di=1;38;5;110:ex=1;32:ln=1;38;5;139:*.tar=1;38;5;203:*.tgz=1;38;5;203:*.zip=1;38;5;203:*.z=1;38;5;203:*.gz=1;38;5;203:*.bz2=1;38;5;203:*.deb=1;38;5;203:*.rpm=1;38;5;203:*.jar=1;38;5;203:*.rar=1;38;5;203:*.7z=1;38;5;203:*.xz=1;38;5;203"
+export LS_COLORS="di=1;38;5;110:ex=1;38;5;109:ln=1;38;5;139:*.tar=1;38;5;203:*.tgz=1;38;5;203:*.zip=1;38;5;203:*.z=1;38;5;203:*.gz=1;38;5;203:*.bz2=1;38;5;203:*.deb=1;38;5;203:*.rpm=1;38;5;203:*.jar=1;38;5;203:*.rar=1;38;5;203:*.7z=1;38;5;203:*.xz=1;38;5;203"
 
 # =============================================================================
 # Tool Initialization
@@ -237,10 +237,10 @@ bindkey -M menuselect 'l' vi-forward-char
 # =============================================================================
 # Custom Highlights
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=#2ecc71,bold'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#2ecc71,bold'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#2ecc71,bold'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#2ecc71,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#ffc20d,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#ffc20d,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#ffc20d,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#ffc20d,bold'
 
 # zsh-syntax-highlighting
 # Guard against multiple sourcing to prevent infinite recursion loop in widgets
