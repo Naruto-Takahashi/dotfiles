@@ -8,7 +8,7 @@
   "repositoryUrl": "",
   "widgets": [
     {
-      "name": "status-bar-primary",
+      "name": "status-bar",
       "htmlPath": "status-bar/index.html",
       "zOrder": "bottom_most",
       "shownInTaskbar": false,
@@ -27,51 +27,14 @@
       },
       "presets": [
         {
-          "name": "primary",
+          "name": "default",
           "anchor": "top_left",
           "offsetX": "0px",
           "offsetY": "0px",
           "width": "100%",
           "height": "24px",
           "monitorSelection": {
-            "type": "primary"
-          },
-          "dockToEdge": {
-            "enabled": true,
-            "edge": "top",
-            "windowMargin": "0px"
-          }
-        }
-      ]
-    },
-    {
-      "name": "status-bar-secondary",
-      "htmlPath": "status-bar/index.html",
-      "zOrder": "bottom_most",
-      "shownInTaskbar": false,
-      "focused": false,
-      "resizable": false,
-      "transparent": true,
-      "includeFiles": [
-        "status-bar/**"
-      ],
-      "caching": {
-        "defaultDuration": 604800,
-        "rules": []
-      },
-      "privileges": {
-        "shellCommands": []
-      },
-      "presets": [
-        {
-          "name": "secondary",
-          "anchor": "top_left",
-          "offsetX": "0px",
-          "offsetY": "0px",
-          "width": "100%",
-          "height": "24px",
-          "monitorSelection": {
-            "type": "secondary"
+            "type": "all"
           },
           "dockToEdge": {
             "enabled": true,
