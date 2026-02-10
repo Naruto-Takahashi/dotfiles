@@ -26,6 +26,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     hl(0, "SignColumn", no_bg)
     hl(0, "LineNr", { bg = "none", fg = "#7aa2f7" })
     hl(0, "CursorLineNr", { bg = "none", bold = true })
+    hl(0, "CursorLine", { bg = "#333333" })
+    hl(0, "CursorColumn", { bg = "#333333" })
     -- hl(0, "CursorLine", { bg = "none", underline = true }) -- カーソル行の背景を表示するためにコメントアウト
   end,
 })
