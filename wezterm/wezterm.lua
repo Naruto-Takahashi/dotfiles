@@ -37,10 +37,10 @@ config.window_background_gradient = {
 }
 
 -- タブの追加ボタンを非表示
-config.show_new_tab_button_in_tab_bar = false
+config.show_new_tab_button_in_tab_bar = true
 -- nightlyのみ使用可能
 -- タブの閉じるボタンを非表示
-config.show_close_tab_button_in_tabs = false
+config.show_close_tab_button_in_tabs = true
 
 -- タブ同士の境界線を非表示
 config.colors = {
