@@ -36,10 +36,10 @@ config.window_background_gradient = {
 }
 
 -- タブの追加ボタンを非表示
-config.show_new_tab_button_in_tab_bar = true
+config.show_new_tab_button_in_tab_bar = false
 -- nightlyのみ使用可能
 -- タブの閉じるボタンを非表示
-config.show_close_tab_button_in_tabs = true
+config.show_close_tab_button_in_tabs = false
 
 -- タブ同士の境界線を非表示
 config.colors = {
@@ -58,7 +58,7 @@ local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local background = "#666666"
+  local background = "#333333"
   local foreground = "#f0f0f0"
   local edge_background = "none"
   local edge_foreground = background
