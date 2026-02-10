@@ -46,6 +46,9 @@ config.colors = {
   tab_bar = {
     inactive_tab_edge = "none",
   },
+  cursor_bg = '#ffc20d',
+  cursor_fg = 'white',
+  cursor_border = '#ffc20d',
 }
 
 -- タブの形をカスタマイズ
@@ -55,7 +58,7 @@ local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local background = "#8e8e8e"
+  local background = "rgba(0, 0, 0, 0.5)"
   local foreground = "#FFFFFF"
   local edge_background = "none"
 
