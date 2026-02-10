@@ -237,10 +237,10 @@ bindkey -M menuselect 'l' vi-forward-char
 # =============================================================================
 # Custom Highlights
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=#ffc20d,bold'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#ffc20d,bold'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#ffc20d,bold'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#ffc20d,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=179,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=179,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=179,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=179,bold'
 
 # zsh-syntax-highlighting
 # Guard against multiple sourcing to prevent infinite recursion loop in widgets
