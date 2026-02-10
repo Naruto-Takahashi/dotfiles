@@ -91,7 +91,7 @@ hash -d win=~/win
 # Aliases
 # =============================================================================
 # Utility
-alias c='clear -x'
+alias c='printf "\033[2J\033[H"'
 alias reload='source ~/.zshrc && echo "Sourced .zshrc"'
 alias path='echo $PATH | tr ":" "\n"'
 
@@ -237,10 +237,11 @@ bindkey -M menuselect 'l' vi-forward-char
 # =============================================================================
 # Custom Highlights
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=179,bold'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=179,bold'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=179,bold'
-ZSH_HIGHLIGHT_STYLES[function]='fg=179,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
 
 # zsh-syntax-highlighting
 # Guard against multiple sourcing to prevent infinite recursion loop in widgets

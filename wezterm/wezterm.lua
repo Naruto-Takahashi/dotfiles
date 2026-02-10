@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
+config.scrollback_lines = 10000
 config.font = wezterm.font 'HackGen Console NF'
 config.font_size = 12.0
 config.initial_cols = 120
