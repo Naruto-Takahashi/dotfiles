@@ -58,22 +58,15 @@ local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local background = "rgba(0, 0, 0, 0.2)"
-  local foreground = "#aaaaaa"
+  local background = "#1e272e"
+  local foreground = "#95a5a6"
   local edge_background = "none"
-
   local edge_foreground = background
-  local edge_background = "none"
 
   if tab.is_active then
     background = "#ffc20d"
     foreground = "#FFFFFF"
     edge_foreground = background
-    edge_background = "none"
-  else
-    -- 非アクティブ時はエッジを背景と同じ色にして一体化させる
-    edge_foreground = background
-    edge_background = "none"
   end
 
   -- 1. まずデフォルトのタイトルを取得
