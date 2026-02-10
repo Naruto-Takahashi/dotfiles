@@ -17,6 +17,11 @@ return {
       },
     },
     filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
       hijack_netrw_behavior = "open_default", -- netrwを無効化し、サイドバーで開く
       use_libuv_file_watcher = true,
       follow_current_file = {
