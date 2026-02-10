@@ -133,6 +133,34 @@
 
       
 
+              function getNetworkClass(networkOutput) {
+                if (networkOutput.defaultInterface?.type === 'wifi' && networkOutput.defaultGateway?.signalStrength) {
+                  const strength = networkOutput.defaultGateway.signalStrength;
+                  if (strength >= 60) return 'text-green';
+                  if (strength >= 40) return 'text-yellow';
+                  return 'text-red';
+                }
+                return '';
+              }
+
+              function getMemoryClass(memoryOutput) {
+                if (memoryOutput.usage >= 80) return 'text-red';
+                if (memoryOutput.usage >= 50) return 'text-yellow';
+                return 'text-green';
+              }
+
+              function getCpuClass(cpuOutput) {
+                if (cpuOutput.usage >= 80) return 'text-red';
+                if (cpuOutput.usage >= 50) return 'text-yellow';
+                return 'text-green';
+              }
+
+              function getBatteryClass(batteryOutput) {
+                if (batteryOutput.chargePercent < 20 && !batteryOutput.isCharging) return 'text-red';
+                if (batteryOutput.chargePercent < 50 && !batteryOutput.isCharging) return 'text-yellow';
+                return 'text-green';
+              }
+
         return (
           <div className="app">
             <div className="left">
@@ -168,32 +196,28 @@
 
             <div className="right">
               {output.network && (
-                <div className="network">
+                <div className={`network ${getNetworkClass(output.network)}`}>
                   {getNetworkIcon(output.network)}
                   {output.network.defaultGateway?.ssid}
                 </div>
               )}
 
               {output.memory && (
-                <div className="memory">
+                <div className={`memory ${getMemoryClass(output.memory)}`}>
                   <i className="nf nf-fae-chip"></i>
                   {Math.round(output.memory.usage)}%
                 </div>
               )}
 
               {output.cpu && (
-                <div className="cpu">
+                <div className={`cpu ${getCpuClass(output.cpu)}`}>
                   <i className="nf nf-oct-cpu"></i>
-
-                  {/* Change the text color if the CPU usage is high. */}
-                  <span className={output.cpu.usage > 85 ? "high-usage" : ""}>
-                    {Math.round(output.cpu.usage)}%
-                  </span>
+                  {Math.round(output.cpu.usage)}%
                 </div>
               )}
 
               {output.battery && (
-                <div className="battery">
+                <div className={`battery ${getBatteryClass(output.battery)}`}>
                   {/* Show icon for whether battery is charging. */}
                   {output.battery.isCharging && (
                     <i className="nf nf-md-power_plug charging-icon"></i>

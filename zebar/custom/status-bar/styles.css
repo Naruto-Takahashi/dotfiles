@@ -14,7 +14,7 @@ body,
 }
 
 #root {
-  background: rgba(0, 0, 0, 45%);
+  background: rgba(0, 0, 0, 65%);
 }
 
 .app {
@@ -79,7 +79,7 @@ body,
 
   &.focused,
   &:hover {
-    background: rgb(255 255 255 / 50%);
+    background: #a86c6c;
   }
 }
 
@@ -105,9 +105,9 @@ body,
   background: rgb(255 255 255 / 50%);
 }
 
-.cpu .high-usage {
-  color: #900029;
-}
+.text-green i { color: #929c79; }
+.text-yellow i { color: #ceab88; }
+.text-red i { color: #a86c6c; }
 
 .battery {
   position: relative;

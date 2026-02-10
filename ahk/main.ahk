@@ -103,3 +103,39 @@ Return
     Sleep 10
     IME_SET(0)
 Return
+
+
+; =============================================================================
+; Explorer Integration (Everything Search)
+; =============================================================================
+
+#IfWinActive ahk_class CabinetWClass
+^f::
+    path := GetExplorerPath()
+    if (path) {
+        ; Confirmed path for Everything 1.5a
+        everythingPath := "C:\Program Files\Everything 1.5a\Everything.exe"
+        
+        if FileExist(everythingPath) {
+            Run, "%everythingPath%" -path "%path%"
+        } else {
+            MsgBox, 16, Error, Everything 1.5a not found at:`n%everythingPath%`n`nPlease check the installation path.
+        }
+    } else {
+        Send, ^f
+    }
+Return
+#IfWinActive
+
+GetExplorerPath() {
+    WinGetClass, winClass, A
+    if (winClass ~= "Progman|WorkerW")
+        return A_Desktop
+    else {
+        for window in ComObjCreate("Shell.Application").Windows
+        {
+            if (window.hwnd == WinExist("A"))
+                return window.Document.Folder.Self.Path
+        }
+    }
+}
