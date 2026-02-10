@@ -91,7 +91,7 @@ hash -d win=~/win
 # Aliases
 # =============================================================================
 # Utility
-alias c='clear'
+alias c='clear -x'
 alias reload='source ~/.zshrc && echo "Sourced .zshrc"'
 alias path='echo $PATH | tr ":" "\n"'
 
