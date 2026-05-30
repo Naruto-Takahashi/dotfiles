@@ -30,10 +30,10 @@
     opacity: 0.1 !important;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 
-    /* 半透明＆すりガラス効果で視認性を大幅向上 */
-    background-color: rgba(var(--colorBgInt), 0.85) !important;
+    /* 黒色すりガラス効果で白い文字を最大化 */
+    background-color: rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(10px) !important;
-    border-right: 1px solid rgba(var(--colorBorderInt), 0.15) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* タブバーにホバーしたときにスライドイン表示 */
@@ -239,11 +239,11 @@
    Panel Transparency & No Borders
    ========================================================================== */
 #panels-container {
-    /* 半透明＆すりガラス効果で視認性を大幅向上 */
-    background-color: rgba(var(--colorBgInt), 0.85) !important;
+    /* 黒色すりガラス効果で白い文字を最大化 */
+    background-color: rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(10px) !important;
     border: none !important;
-    border-left: 1px solid rgba(var(--colorBorderInt), 0.15) !important; /* 左端に薄い境界線 */
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important; /* 左端に薄い境界線 */
     box-shadow: none !important;
 
     /* パネルの右側配置と自動非表示 */
