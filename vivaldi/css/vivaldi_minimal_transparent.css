@@ -25,10 +25,17 @@
     top: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    z-index: 998 !important;
-    transform: translateX(-100%) !important;
-    opacity: 0 !important;
+    z-index: 998 !important; /* パネルより少し奥 */
+    transform: translateX(calc(-100% + 8px)) !important; /* 左端に8pxだけ残す */
+    opacity: 0.1 !important;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+}
+
+/* タブバーにホバーしたときにスライドイン表示（最前面へ） */
+#tabs-tabbar-container:hover {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    z-index: 1000 !important; /* ホバーされた方を最前面にする */
 }
 
 /* ==========================================================================
@@ -243,15 +250,11 @@
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 }
 
-/* 相互ホバー連携：パネルまたはタブバーにホバーしたとき，両方をスライドイン表示 */
-#panels-container:hover,
-#tabs-tabbar-container:hover,
-#panels-container:hover ~ #tabs-tabbar-container,
-#tabs-tabbar-container:hover ~ #panels-container,
-#panels-container:hover + #tabs-tabbar-container,
-#tabs-tabbar-container:hover + #panels-container {
+/* パネルコンテナにホバーしたときにスライドイン表示（最前面へ） */
+#panels-container:hover {
     transform: translateX(0) !important;
     opacity: 1 !important;
+    z-index: 1000 !important; /* ホバーされた方を最前面にする */
 }
 
 /* パネルスイッチ（アイコン列）の背景透明化・境界線削除 */
