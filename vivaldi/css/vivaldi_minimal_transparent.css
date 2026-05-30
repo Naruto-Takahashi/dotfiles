@@ -45,8 +45,8 @@
     box-shadow: none !important;
     height: auto !important;
     min-height: 0 !important;
-    /* タイトルバーの高さ分だけ全体を下げる（少し狭める） */
-    margin-top: 24px !important;
+    /* タイトルバーを非表示にするため，上部余白を0にする */
+    margin-top: 0px !important;
 }
 
 /* アドレス入力欄・検索欄を周囲になじませる（半透明化） */
@@ -87,19 +87,7 @@
    ========================================================================== */
 /* タイトルバー全体調整 */
 #titlebar {
-    display: flex !important;
-    background-color: transparent !important;
-    height: 24px !important; /* 高さを少し狭める */
-    align-items: center !important; /* 垂直中央揃え */
-    padding: 0 !important;
-    -webkit-app-region: drag !important; /* ウィンドウドラッグ有効化 */
-    
-    /* タイトルバーを画面最上部に強制固定 */
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
+    display: none !important;
 }
 
 /* macOS風ウィンドウコントロール（最小化・最大化・閉じるボタン） */
