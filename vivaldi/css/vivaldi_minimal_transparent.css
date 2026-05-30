@@ -19,6 +19,22 @@
     border: none !important;
 }
 
+/* タブバーの自動非表示設定（通常時） */
+#tabs-tabbar-container {
+    height: 0px !important;
+    min-height: 0px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+}
+
+/* ヘッダー全体にホバーしたときにタブバーを表示 */
+#header:hover #tabs-tabbar-container {
+    height: 30px !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+
 /* ==========================================================================
    Address Bar Transparency & Styling (New)
    ========================================================================== */
@@ -215,11 +231,23 @@
 /* ==========================================================================
    Panel Transparency & No Borders
    ========================================================================== */
-/* パネルコンテナ（サイドバー全体）の背景透明化・境界線削除 */
 #panels-container {
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+
+    /* パネルの自動非表示設定（通常時は8pxの薄い検知エリア） */
+    width: 8px !important;
+    opacity: 0 !important;
+    transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+    overflow: hidden !important;
+}
+
+/* パネルコンテナにホバーしたときに表示 */
+#panels-container:hover {
+    width: 260px !important; /* 一般的なパネルの幅 */
+    opacity: 1 !important;
+    overflow: visible !important;
 }
 
 /* パネルスイッチ（アイコン列）の背景透明化・境界線削除 */
