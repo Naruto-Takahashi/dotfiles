@@ -29,6 +29,11 @@
     transform: translateX(calc(-100% + 8px)) !important; /* 左端に8pxだけ残す */
     opacity: 0.1 !important;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+
+    /* 半透明＆すりガラス効果で視認性を大幅向上 */
+    background-color: rgba(var(--colorBgInt), 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    border-right: 1px solid rgba(var(--colorBorderInt), 0.15) !important;
 }
 
 /* タブバーにホバーしたときにスライドイン表示 */
@@ -234,8 +239,11 @@
    Panel Transparency & No Borders
    ========================================================================== */
 #panels-container {
-    background-color: transparent !important;
+    /* 半透明＆すりガラス効果で視認性を大幅向上 */
+    background-color: rgba(var(--colorBgInt), 0.85) !important;
+    backdrop-filter: blur(10px) !important;
     border: none !important;
+    border-left: 1px solid rgba(var(--colorBorderInt), 0.15) !important; /* 左端に薄い境界線 */
     box-shadow: none !important;
 
     /* パネルの右側配置と自動非表示 */
