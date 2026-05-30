@@ -31,9 +31,10 @@
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 
     /* ダークグレーのすりガラス効果 */
-    background-color: rgba(30, 30, 30, 0.4) !important; /* 透明度をさらにアップ */
+    background-color: rgba(30, 30, 30, 0.3) !important; /* 透明度をさらにアップして30%に */
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 8px 8px 0 !important; /* 右側の角を丸めてフローティング化 */
 }
 
 /* タブバーにホバーしたときにスライドイン表示 */
@@ -240,10 +241,11 @@
    ========================================================================== */
 #panels-container {
     /* ダークグレーのすりガラス効果 */
-    background-color: rgba(30, 30, 30, 0.4) !important; /* 透明度をさらにアップ */
+    background-color: rgba(30, 30, 30, 0.3) !important; /* 透明度をさらにアップして30%に */
     backdrop-filter: blur(10px) !important;
     border: none !important;
     border-left: 1px solid rgba(255, 255, 255, 0.1) !important; /* 左端に薄い境界線 */
+    border-radius: 8px 0 0 8px !important; /* 左側の角を丸めてフローティング化 */
     box-shadow: none !important;
 
     /* パネルの右側配置と自動非表示 */
