@@ -33,7 +33,8 @@
     /* ダークグレーのすりガラス効果 */
     background-color: rgba(30, 30, 30, 0.3) !important; /* 30%の究極の透明感へ復帰 */
     backdrop-filter: blur(10px) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-right: none !important; /* 実線を廃止 */
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18) !important; /* ソフトなぼかし影で馴染ませる */
     border-radius: 0 8px 8px 0 !important; /* 右側の角を丸めてフローティング化 */
 }
 
@@ -244,9 +245,9 @@
     background-color: rgba(30, 30, 30, 0.3) !important; /* 30%の究極の透明感へ復帰 */
     backdrop-filter: blur(10px) !important;
     border: none !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.1) !important; /* 左端に薄い境界線 */
+    border-left: none !important; /* 実線を廃止 */
     border-radius: 8px 0 0 8px !important; /* 左側の角を丸めてフローティング化 */
-    box-shadow: none !important;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.18) !important; /* ソフトなぼかし影で馴染ませる */
 
     /* パネルの右側配置と自動非表示 */
     position: absolute !important;
