@@ -185,9 +185,6 @@ keybindings:
     # Re-evaluate configuration file.
 
     bindings: ["alt+shift+r"]
-  - commands: ["shell-exec cmd.exe /c \"taskkill /F /IM zebar.exe & start zebar\""]
-    # Restart Zebar process.
-    bindings: ["alt+shift+z"]
   - commands: ["wm-redraw"]
     # Redraw all windows.
 

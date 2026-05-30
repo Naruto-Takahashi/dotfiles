@@ -140,3 +140,15 @@ GetExplorerPath() {
         }
     }
 }
+
+; =============================================================================
+; Zebar Operations
+; =============================================================================
+
+; --- Restart Zebar (Alt + Shift + Z) ---
+!+z::
+    Run, taskkill /F /IM zebar.exe,, Hide
+    Sleep, 500
+    Run, "C:\Program Files\glzr.io\Zebar\zebar.exe",, Hide
+Return
+

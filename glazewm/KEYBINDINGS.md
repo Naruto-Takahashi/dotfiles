@@ -26,7 +26,7 @@
 | `alt+shift+q` | `close` | ウィンドウを閉じる |
 | `alt+shift+e` | `wm-exit` | GlazeWMを終了 |
 | `alt+shift+r` | `wm-reload-config` | 設定をリロード |
-| `alt+shift+z` | `shell-exec ...` | Zebarを再起動 |
+| `alt+shift+z` | `AutoHotkey` | Zebarを再起動 |
 | `alt+shift+w` | `wm-redraw` | 全ウィンドウを再描画 |
 
 ## ワークスペース管理 (Workspace Management)
