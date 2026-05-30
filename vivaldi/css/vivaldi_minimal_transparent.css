@@ -21,18 +21,23 @@
 
 /* タブバーの自動非表示設定（通常時） */
 #tabs-tabbar-container {
-    position: absolute !important;
+    position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    z-index: 99 !important;
-    transform: translateY(-100%) !important;
-    transition: transform 0.2s ease-in-out !important;
+    z-index: 9999 !important; /* 最前面に表示 */
+    height: 2px !important; /* 通常時は2pxの極薄検知帯 */
+    min-height: 2px !important;
+    opacity: 0.1 !important; /* ほぼ透明 */
+    overflow: hidden !important;
+    transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 }
 
-/* ヘッダー全体にホバーしたときにタブバーを表示 */
-#header:hover #tabs-tabbar-container {
-    transform: translateY(0) !important;
+/* タブバー自体にホバーしたときに展開 */
+#tabs-tabbar-container:hover {
+    height: 30px !important; /* ホバー時に本来の高さに展開 */
+    opacity: 1 !important;
+    overflow: visible !important;
 }
 
 /* ==========================================================================
