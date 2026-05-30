@@ -303,3 +303,33 @@ header.panel-header,
     display: none !important;
     border: none !important;
 }
+
+/* ==========================================================================
+   Vertical Tab Bar Text & Icon Color Force White
+   ========================================================================== */
+/* 通常時（非アクティブ）のタブ文字とアイコンを薄い白にして馴染ませる */
+.tab-position .tab,
+#tabs-tabbar-container .tab,
+#tabs-tabbar-container .tab-title,
+#tabs-tabbar-container .title {
+    color: rgba(255, 255, 255, 0.6) !important;
+    fill: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* アクティブタブの文字とアイコンをくっきりとした白にして際立たせる */
+.tab-position .tab.active,
+#tabs-tabbar-container .tab.active,
+#tabs-tabbar-container .tab.active .tab-title,
+#tabs-tabbar-container .tab.active .title,
+#tabs-tabbar-container .tab.active .close {
+    color: rgba(255, 255, 255, 1.0) !important;
+    fill: rgba(255, 255, 255, 1.0) !important;
+}
+
+/* 新規タブボタンなどのツールバーボタンも白系統にする */
+#tabs-tabbar-container button,
+#tabs-tabbar-container .button-toolbar,
+#tabs-tabbar-container .button-toolbar svg {
+    color: rgba(255, 255, 255, 0.8) !important;
+    fill: rgba(255, 255, 255, 0.8) !important;
+}
