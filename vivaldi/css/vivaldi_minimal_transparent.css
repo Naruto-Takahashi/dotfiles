@@ -26,12 +26,12 @@
     bottom: 0 !important;
     left: 0 !important;
     z-index: 999 !important;
-    transform: translateX(calc(-100% + 8px)) !important; /* 左端に8pxだけ残す */
-    opacity: 0.1 !important;
+    transform: translateX(calc(-100% + 18px)) !important; /* 左端に18px残して当たり判定を拡大 */
+    opacity: 0.25 !important; /* 検知帯が見えやすいよう不透明度をわずかに調整 */
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 
-    /* 黒色すりガラス効果で白い文字を最大化 */
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    /* ダークグレーのすりガラス効果 */
+    background-color: rgba(30, 30, 30, 0.65) !important;
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
@@ -239,8 +239,8 @@
    Panel Transparency & No Borders
    ========================================================================== */
 #panels-container {
-    /* 黒色すりガラス効果で白い文字を最大化 */
-    background-color: rgba(0, 0, 0, 0.8) !important;
+    /* ダークグレーのすりガラス効果 */
+    background-color: rgba(30, 30, 30, 0.65) !important;
     backdrop-filter: blur(10px) !important;
     border: none !important;
     border-left: 1px solid rgba(255, 255, 255, 0.1) !important; /* 左端に薄い境界線 */
@@ -253,8 +253,8 @@
     right: 0 !important; /* 右端に配置 */
     left: auto !important; /* 左側設定を解除 */
     z-index: 999 !important;
-    transform: translateX(calc(100% - 8px)) !important; /* 右端に8pxだけ残して右外へ隠す */
-    opacity: 0.1 !important;
+    transform: translateX(calc(100% - 18px)) !important; /* 右端に18px残して当たり判定を拡大 */
+    opacity: 0.25 !important;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 }
 
