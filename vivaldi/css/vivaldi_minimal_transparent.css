@@ -31,7 +31,7 @@
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
 
     /* ダークグレーのすりガラス効果 */
-    background-color: rgba(30, 30, 30, 0.48) !important; /* 48%不透明に戻し，Vivaldiの白文字判定を機能させる */
+    background-color: rgba(30, 30, 30, 0.3) !important; /* 30%の究極の透明感へ復帰 */
     backdrop-filter: blur(10px) !important;
     border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 0 8px 8px 0 !important; /* 右側の角を丸めてフローティング化 */
@@ -241,7 +241,7 @@
    ========================================================================== */
 #panels-container {
     /* ダークグレーのすりガラス効果 */
-    background-color: rgba(30, 30, 30, 0.48) !important; /* 48%不透明に戻し，一貫性を保持 */
+    background-color: rgba(30, 30, 30, 0.3) !important; /* 30%の究極の透明感へ復帰 */
     backdrop-filter: blur(10px) !important;
     border: none !important;
     border-left: 1px solid rgba(255, 255, 255, 0.1) !important; /* 左端に薄い境界線 */
