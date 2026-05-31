@@ -1,3 +1,7 @@
+# Starship performance optimizations for WSL
+scan_timeout = 20
+command_timeout = 500
+
 format = """
 $directory\
 [ ](fg:#ffc20d bg:#333333)\
@@ -9,7 +13,6 @@ $git_status\
 
 right_format = """$cmd_duration$username $time"""
 
-# コマンドラインに1行分のスペースを入れる
 add_newline = true
 
 [username]
@@ -18,24 +21,17 @@ style_root = "black bold"
 format = "user: [$user]($style) "
 disabled = false
 
-
-# left_promptとright_promptの間を何で埋めるか設定
 [fill]
 symbol = ' '
 
 [directory]
 style = "fg:#000000 bg:#ffc20d bold"
-# format = "[ $path ]($style)"
 truncation_length = 10
 truncate_to_repo = false
 truncation_symbol = "…/"
-# truncation_symbol = ' ' # nf-fa-folder_open
-# truncate_to_repo = false
-# style = 'fg:#7aa2f7 bg:#1a1b26'
-read_only = ' 󰌾 ' # nf-md-lock
+read_only = ' 󰌾 '
 read_only_style = 'fg:#000000 bg:#ffc20d'
 format = '[ $path ]($style)[$read_only]($read_only_style)'
-
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -60,14 +56,12 @@ format = '[[($all_status$ahead_behind )](fg:#ffc20d bg:#333333)]($style)'
 [cmd_duration]
 min_time = 1
 style = 'fg:#b48ead'
-format = "[[  ](fg:#a0a9cb) $duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+format = "[[  ](fg:#a0a9cb) $duration]($style)"
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-# style = "bg:#1d2230"
+time_format = "%R"
 format = '[[   $time ](fg:#a0a9cb)]($style)'
-
 
 [character]
 success_symbol = "[❯](bold #ffc20d)"

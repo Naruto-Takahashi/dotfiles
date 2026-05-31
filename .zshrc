@@ -244,11 +244,7 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
 
-# zsh-syntax-highlighting
-# Guard against multiple sourcing to prevent infinite recursion loop in widgets
-if [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+
 
 # Sync Windows config files from WSL dotfiles
 function sync-win() {
@@ -275,7 +271,14 @@ function sync-win() {
 }
 
 # Starship (Must be initialized last to avoid conflict with syntax highlighting)
+export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
+
+# zsh-syntax-highlighting (Must be loaded after starship init)
+# Guard against multiple sourcing to prevent infinite recursion loop in widgets
+if [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # =============================================================================
 # Local Settings
