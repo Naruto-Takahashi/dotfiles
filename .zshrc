@@ -271,7 +271,6 @@ function sync-win() {
 }
 
 # Starship (Must be initialized last to avoid conflict with syntax highlighting)
-export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
 
 # zsh-syntax-highlighting (Must be loaded after starship init)
