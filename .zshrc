@@ -76,11 +76,6 @@ if command -v zoxide >/dev/null; then
     alias cd='z'
 fi
 
-# direnv
-if command -v direnv >/dev/null; then
-    eval "$(direnv hook zsh)"
-fi
-
 # =============================================================================
 # Directory Options & Hash
 # =============================================================================
