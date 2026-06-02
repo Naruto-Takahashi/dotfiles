@@ -279,6 +279,9 @@ if [ -z "$ZSH_HIGHLIGHT_VERSION" ] && [ -f /usr/share/zsh-syntax-highlighting/zs
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# Wi-Fi Reconnector
+alias wifi-recover="wifi_reconnector.sh"
+
 # =============================================================================
 # Local Settings
 # =============================================================================
