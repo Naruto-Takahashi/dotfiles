@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master", -- Use the legacy branch for compatibility (configs module)
+  branch = "main", -- 'master' is legacy and has compatibility issues with Neovim 0.12
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
