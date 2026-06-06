@@ -283,9 +283,3 @@ fi
 # Local Settings
 # =============================================================================
 [ -f ~/.env ] && source ~/.env
-
-# Run fastfetch on interactive shell startup
-if [[ -o interactive ]] && command -v fastfetch >/dev/null; then
-    fastfetch
-fi
-
