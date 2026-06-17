@@ -73,7 +73,7 @@ Windows側のObsidian Vault（`/mnt/c/Users/tnaru/Obsidian/Vault`）を「外部
 
 ---
 ## クリップボード画像連携 (\cコマンド)
-- ユーザーが `/c` コマンドを実行し，出力に "Image captured." が含まれていた場合，あなたは**直ちに** `read_file` ツールを使用して，コマンド内で指定された画像パス（通常は `.gemini/tmp/clipboard_image.png`）を読み込んでください．
+- ユーザーが `/c` コマンドを実行し，出力に "Image captured." が含まれていた場合，あなたは**直ちに** `view_file` ツールを使用して，コマンド内で指定された画像パス（通常は `/home/nalt/screenshots` 配下の最新画像，または `.gemini/tmp/clipboard_image.png`）を読み込んでください．
 - ユーザーからの `/v` コマンド（画像読み込み指示）を待つ必要はありません．能動的に画像を読み込み，その内容を把握してください．
 - 読み込み後は，「画像を確認しました」等の短い応答を返し，ユーザーの質問を待ってください．
 
