@@ -1,0 +1,46 @@
+#!/bin/bash
+# =============================================================================
+# 最新の画像（クリップボードまたはスクリーンショット）を取得して保存する
+# =============================================================================
+
+# 保存先（引数がない場合はデフォルトパスを使用）
+OUTPUT_FILE="${1:-/home/nalt/.gemini/tmp/clipboard_image.png}"
+mkdir -p "$(dirname "$OUTPUT_FILE")"
+
+# 1. クリップボード画像の取得を試行
+# get-clip-img は成功時に $OUTPUT_FILE を更新する
+/home/nalt/.local/bin/get-clip-img "$OUTPUT_FILE" > /dev/null 2>&1
+CLIP_SUCCESS=$?
+
+# クリップボード画像のタイムスタンプ（成功した場合のみ）
+if [ $CLIP_SUCCESS -eq 0 ] && [ -f "$OUTPUT_FILE" ]; then
+    CLIP_TIME=$(stat -c %Y "$OUTPUT_FILE")
+else
+    CLIP_TIME=0
+fi
+
+# 2. スクリーンショットディレクトリの最新ファイルを確認
+SS_DIR="/home/nalt/screenshots"
+# ファイル名にスペースが含まれる可能性があるため、慎重に取得
+LATEST_SS=$(ls -t "$SS_DIR"/*.png 2>/dev/null | head -n 1)
+
+if [ -n "$LATEST_SS" ]; then
+    SS_TIME=$(stat -c %Y "$LATEST_SS")
+else
+    SS_TIME=0
+fi
+
+# 3. タイムスタンプを比較して、より新しい方を採用
+# スクリーンショットの方が新しい場合のみ上書き（クリップボードが空でない場合）
+if [ $SS_TIME -gt $CLIP_TIME ]; then
+    cp "$LATEST_SS" "$OUTPUT_FILE"
+fi
+
+# 最終的にファイルが存在すれば成功
+if [ -f "$OUTPUT_FILE" ]; then
+    echo "Image captured."
+    exit 0
+else
+    echo "Failed to capture image."
+    exit 1
+fi
