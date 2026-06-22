@@ -10,8 +10,8 @@
 ## 設定ファイル運用ルール
 - **OS環境**: Ubuntu (WSL2) / Windows (ユーザー: tnaru)
 - **管理リポジトリの使い分け**:
-    - 各種設定ファイル（WezTerm，Zsh，GlazeWM，Zebar，Lazygit等）は，`~/dotfiles` ではなく，`~/ghq/github.com/Naruto-Takahashi/home-manager-config`（Nix/Home Manager）を正本として宣言的に管理します．
-    - 設定変更時は，`home-manager-config` リポジトリ側の Nix ファイルを編集し，変更後は必ず `git add` してから `home-manager switch` を適用すること．
+    - 各種設定ファイル（WezTerm，Zsh，GlazeWM，Zebar，Lazygit等）は，`~/dotfiles` ではなく，`~/ghq/github.com/Naruto-Takahashi/nix-config`（Nix/Home Manager）を正本として宣言的に管理します．
+    - 設定変更時は，`nix-config` リポジトリ側の Nix ファイルを編集し，変更後は必ず `git add` してから `home-manager switch` を適用すること．
 - **設定ファイル実体（旧 dotfiles 管理のもの）**:
     - `~/.zshrc` -> `~/dotfiles/.zshrc`
     - `~/.config/nvim` -> `~/dotfiles/nvim`
